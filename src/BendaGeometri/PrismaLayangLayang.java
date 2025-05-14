@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 /**
  * 
  */
@@ -22,125 +19,77 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
 	/**
 	 * 
 	 */
-	private LayangLayang bendaAlas;
 
 	/**
 	 * @param bendaAlas 
 	 * @param tinggi
 	 */
-	public PrismaLayangLayang(LayangLayang bendaAlas, double tinggi) {
+	public PrismaLayangLayang(double tinggi) {
 		// TODO implement here
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @param bendaAlas 
 	 * @param tinggi
 	 */
-	public PrismaLayangLayang(LayangLayang bendaAlas, int tinggi) {
+	public PrismaLayangLayang(int tinggi) {
 		// TODO implement here
+		this.tinggi = tinggi;
 	}
 
-	/**
-	 * @return
-	 */
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
-	}
+ 	@Override
+    public double menghitungVolume(int[] params) {
+        // Example implementation: Assuming params[0] is base area and params[1] is height
+        if (params.length >= 2) {
+            return params[0] * params[1];
+        }
+        return 0.0d;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan() {
+        // Example implementation: Placeholder logic
+        return 2*super.getLuas() + super.getKeliling() * tinggi;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(double[] params) {
+        // Example implementation: Assuming params[0] is base area and params[1] is lateral area
+        if (params.length >= 2) {
+            return params[0] + params[1];
+        }
+        return 0.0d;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
+    // Other methods from IBenda3D must also be implemented here
+    @Override
+    public double menghitungVolume(double[] params) {
+        // TODO: Implement logic
+        return 0.0d;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungVolume() {
+        // TODO: Implement logic
+        return super.getLuas() * tinggi;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(int[] params) {
+        // TODO: Implement logic
 
-	/**
-	 * @return
-	 */
-	public void mencetakVolume() {
-		// TODO implement here
-		return null;
-	}
+        return 0.0d;
 
-	/**
-	 * @return
-	 */
-	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		return null;
-	}
+    }
 
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
+    @Override
+    public void mencetakVolume() {
+        System.out.println("Volume: " + menghitungVolume());
+    }
 
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(): float();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakVolume(): void();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakLuasPermukaan(): void();
-
+    @Override
+    public void mencetakLuasPermukaan() {
+        System.out.println("Luas Permukaan: " + menghitungLuasPermukaan());
+    }
 }
