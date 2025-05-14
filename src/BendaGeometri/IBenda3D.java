@@ -11,36 +11,37 @@ public interface IBenda3D {
 	/**
 	 * 
 	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
+	public abstract double menghitungVolume(double params[]);
+	public abstract double menghitungVolume();
 
 	/**
 	 * 
 	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
+	public abstract double menghitungVolume(int params[]);
 
 	/**
 	 * 
 	 */
-	public abstract void menghitungLuasPermukaan(): float();
+	public abstract double menghitungLuasPermukaan();
 
 	/**
 	 * 
 	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
+	public abstract double menghitungLuasPermukaan(double params[]);
 
 	/**
 	 * 
 	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
+	public abstract double menghitungLuasPermukaan(int params[]);
 
 	/**
 	 * 
 	 */
-	public abstract void mencetakVolume(): void();
+	public abstract void mencetakVolume();
 
 	/**
 	 * 
 	 */
-	public abstract void mencetakLuasPermukaan(): void();
+	public abstract void mencetakLuasPermukaan();
 
 }
