@@ -8,6 +8,9 @@ import java.util.*;
  */
 public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 
+	// Height of the pyramid
+	public double tinggi;
+
 	/**
 	 * Default constructor
 	 */
@@ -15,132 +18,132 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	}
 
 	/**
-	 * 
-	 */
-	public double tinggi;
-
-	/**
-	 * 
-	 */
-	private LayangLayang bendaAlas;
-
-	/**
-	 * @param bendaAlas 
+	 * Constructor with parameters
+	 * @param diagonal1 
+	 * @param diagonal2 
 	 * @param tinggi
 	 */
-	public LimasLayangLayang(LayangLayang bendaAlas, double tinggi) {
-		// TODO implement here
+	public LimasLayangLayang(double diagonal1, double diagonal2, double sisiPendek, double sisiPanjang, double tinggi) {
+		super(diagonal1, diagonal2, sisiPendek, sisiPanjang); // Initialize the base (LayangLayang)
+		this.tinggi = tinggi; // Initialize the height
 	}
 
 	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public LimasLayangLayang(LayangLayang bendaAlas, int tinggi) {
-		// TODO implement here
-	}
-
-	/**
+	 * Calculate the volume of the pyramid
 	 * @return
 	 */
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	@Override
+	public double menghitungVolume() {
+		double baseArea = super.getLuas(); // Get the base area from LayangLayang
+		return (1.0 / 3.0) * baseArea * tinggi;
 	}
 
 	/**
+	 * Calculate the volume of the pyramid with given parameters
 	 * @param params 
 	 * @return
 	 */
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
+	@Override
+	public double menghitungVolume(double[] params) {
+		if (params.length >= 3) {
+			double d1 = params[0];
+			double d2 = params[1];
+			double height = params[2];
+			double baseArea = (d1 * d2) / 2; // Area of the LayangLayang base
+			return (1.0 / 3.0) * baseArea * height;
+		}
+		return 0.0;
 	}
 
 	/**
+	 * Calculate the volume of the pyramid with given parameters
 	 * @param params 
 	 * @return
 	 */
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
+	@Override
+	public double menghitungVolume(int[] params) {
+		if (params.length >= 3) {
+			double d1 = params[0];
+			double d2 = params[1];
+			double height = params[2];
+			double baseArea = (d1 * d2) / 2; // Area of the LayangLayang base
+			return (1.0 / 3.0) * baseArea * height;
+		}
+		return 0.0;
 	}
 
 	/**
+	 * Calculate the surface area of the pyramid
 	 * @return
 	 */
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
+	@Override
+	public double menghitungLuasPermukaan() {
+		double baseArea = super.getLuas(); // Get the base area from LayangLayang
+		double sideLength1 = super.getSisi1(); // Get one side length of the LayangLayang
+		double sideLength2 = super.getSisi2(); // Get the other side length of the LayangLayang
+		double slantHeight1 = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sideLength1 / 2, 2));
+		double slantHeight2 = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sideLength2 / 2, 2));
+		double lateralArea = (sideLength1 * slantHeight1) + (sideLength2 * slantHeight2);
+		return baseArea + lateralArea;
 	}
 
 	/**
+	 * Calculate the surface area of the pyramid with given parameters
 	 * @param params 
 	 * @return
 	 */
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
+	@Override
+	public double menghitungLuasPermukaan(double[] params) {
+		if (params.length >= 4) {
+			double d1 = params[0];
+			double d2 = params[1];
+			double height = params[2];
+			double sideLength = params[3];
+			double baseArea = (d1 * d2) / 2;
+			double slantHeight = Math.sqrt(Math.pow(height, 2) + Math.pow(sideLength / 2, 2));
+			double lateralArea = 4 * (0.5 * sideLength * slantHeight);
+			return baseArea + lateralArea;
+		}
+		return 0.0;
 	}
 
 	/**
+	 * Calculate the surface area of the pyramid with given parameters
 	 * @param params 
 	 * @return
 	 */
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
+	@Override
+	public double menghitungLuasPermukaan(int[] params) {
+		if (params.length >= 4) {
+			double d1 = params[0];
+			double d2 = params[1];
+			double height = params[2];
+			double sideLength = params[3];
+			double baseArea = (d1 * d2) / 2;
+			double slantHeight = Math.sqrt(Math.pow(height, 2) + Math.pow(sideLength / 2, 2));
+			double lateralArea = 4 * (0.5 * sideLength * slantHeight);
+			return baseArea + lateralArea;
+		}
+		return 0.0;
 	}
 
 	/**
+	 * Print the volume of the pyramid
 	 * @return
 	 */
+	@Override
 	public void mencetakVolume() {
-		// TODO implement here
-		
+		System.out.println("Volume: " + menghitungVolume());
 	}
 
 	/**
+	 * Print the surface area of the pyramid
 	 * @return
 	 */
+	@Override
 	public void mencetakLuasPermukaan() {
+
 		// TODO implement here
-		
+		System.out.println("Luas Permukaan: " + menghitungLuasPermukaan());
 	}
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(): float();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakVolume(): void();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakLuasPermukaan(): void();
-
 }

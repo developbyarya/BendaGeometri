@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 /**
  * 
  */
@@ -19,128 +16,88 @@ public class PrismaBelahKetupat extends BelahKetupat implements IBenda3D {
 	 */
 	private double tinggi;
 
-	/**
-	 * 
-	 */
-	private BelahKetupat bendaAlas;
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaBelahKetupat(BelahKetupat bendaAlas, double tinggi) {
-		// TODO implement here
-	}
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaBelahKetupat(BelahKetupat bendaAlas, int tinggi) {
-		// TODO implement here
-	}
+// Constructor
+    public PrismaBelahKetupat(double diagonal1, double diagonal2, double tinggi) {
+        this.tinggi = tinggi;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
-	}
+    // Calculate the volume of the prism
+    @Override
+    public double menghitungVolume() {
+        double luasAlas = super.getLuas(); // Area of the rhombus base
+        return luasAlas * tinggi;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungVolume(double[] params) {
+        if (params.length >= 3) {
+            double d1 = params[0];
+            double d2 = params[1];
+            double height = params[2];
+            double luasAlas = (d1 * d2) / 2;
+            return luasAlas * height;
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungVolume(int[] params) {
+        if (params.length >= 3) {
+            double d1 = params[0];
+            double d2 = params[1];
+            double height = params[2];
+            double luasAlas = (d1 * d2) / 2;
+            return luasAlas * height;
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
+    // Calculate the surface area of the prism
+    @Override
+    public double menghitungLuasPermukaan() {
+        double luasAlas = this.getLuas(); // Area of the rhombus base
+        double kelilingAlas =this.getKeliling(); 
+        return (2 * luasAlas) + (kelilingAlas * tinggi);
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(double[] params) {
+        if (params.length >= 3) {
+            double d1 = params[0];
+            double d2 = params[1];
+            double height = params[2];
+            double luasAlas = (d1 * d2) / 2;
+            double kelilingAlas = 4 * Math.sqrt(Math.pow(d1 / 2, 2) + Math.pow(d2 / 2, 2));
+            return (2 * luasAlas) + (kelilingAlas * height);
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(int[] params) {
+        if (params.length >= 3) {
+            double d1 = params[0];
+            double d2 = params[1];
+            double height = params[2];
+            double luasAlas = (d1 * d2) / 2;
+            double kelilingAlas = 4 * Math.sqrt(Math.pow(d1 / 2, 2) + Math.pow(d2 / 2, 2));
+            return (2 * luasAlas) + (kelilingAlas * height);
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public void mencetakVolume() {
-		// TODO implement here
-		
-	}
+    // Print the volume of the prism
+    @Override
+    public void mencetakVolume() {
+        System.out.println("Volume: " + menghitungVolume());
+    }
 
-	/**
-	 * @return
-	 */
-	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		
-	}
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(): float();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakVolume(): void();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakLuasPermukaan(): void();
+    // Print the surface area of the prism
+    @Override
+    public void mencetakLuasPermukaan() {
+        System.out.println("Luas Permukaan: " + menghitungLuasPermukaan());
+    }
 
 }
