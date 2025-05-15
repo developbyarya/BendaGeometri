@@ -84,19 +84,7 @@ public abstract class Benda2D {
 	public void setLuas(float luas){
 		this.luas = luas;
 	}
-	public float getKeliling(){
-		return this.Keliling;
-	}
-	public void setKeliling(float keliling){
-		this.Keliling = keliling;
-	}
 
-	public float getLuas(){
-		return this.luas;
-	}
-	public void setLuas(float luas){
-		this.luas = luas;
-	}
 	public float getKeliling(){
 		return this.Keliling;
 	}

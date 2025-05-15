@@ -36,43 +36,28 @@ public class Lingkaran extends Benda2D {
 	public float menghitungLuas() {
 		return (float) (Math.PI * this.radius * this.radius);
 	}
-	@Override
-	public double menghitungLuas(double[] params) {
-		if (params.length >= 1) {
-			return Math.PI * params[0] * params[0];
-		}
-		return 0.0;
+
+	public double menghitungLuas(double radius) {
+			return Math.PI * radius * radius;
 	}
 
-	@Override
-	public double menghitungLuas(int[] params) {
-		if (params.length >= 1) {
-			return Math.PI * params[0] * params[0];
+	public double menghitungLuas(int radius) {
+			return Math.PI * radius * radius;
 		}
-		return 0.0;
-	}
+
 
 	@Override
 	public float menghitungKeliling() {
 		return (float) (2 * Math.PI * this.radius);
 	}
 
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length >= 1) {
-			return 2 * Math.PI * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(double radius) {
+		return 2 * Math.PI * radius;
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length >= 1) {
-			return 2 * Math.PI * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(int radius) {
+		return 2 * Math.PI * radius;
 	}
-
 	@Override
 	public void mencetakLuas() {
 		System.out.println("Luas Lingkaran: " + menghitungLuas());

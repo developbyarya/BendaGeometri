@@ -72,13 +72,16 @@ public class BelahKetupat extends Benda2D {
 		return (float) ((diagonal1 * diagonal2) / 2);
 	}
 
-	public double menghitungLuas(double d1, double d2) {
-		return (d1 * d2) / 2;
+
+
+
+	public double menghitungLuas(double diagonal1, double diagonal2) {
+		return (diagonal1 * diagonal2) / 2.0;
 	}
 
-	public double menghitungLuas(int d1, int d2) {
-		return (d1 * d2) / 2;
-	}
+	public double menghitungLuas(int diagonal1, int diagonal2) {
+		return (diagonal1 * diagonal2) / 2;
+  }
 
 	@Override
 	public float menghitungKeliling() {
@@ -86,11 +89,11 @@ public class BelahKetupat extends Benda2D {
 	}
 
 	public double menghitungKeliling(double sisi) {
-		return (float) (4 * sisi);
+		return 4 * sisi;
 	}
 
 	public double menghitungKeliling(int sisi) {
-		return (float) (4 * sisi);
+		return 4 * sisi;
 	}
 
 	@Override
