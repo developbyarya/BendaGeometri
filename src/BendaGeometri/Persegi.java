@@ -1,161 +1,81 @@
 package BendaGeometri;
-
 import java.io.*;
 import java.util.*;
-
-/**
- * 
- */
 public class Persegi extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public Persegi() {
-	}
-
-	/**
-	 * 
-	 */
 	private double sisi;
 
-	/**
-	 * @param sisi
-	 */
+	public Persegi() {
+		this.sisi = 0;
+	}
+
 	public Persegi(double sisi) {
-		// TODO implement here
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @param sisi
-	 */
 	public Persegi(int sisi) {
-		// TODO implement here
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakSisi() {
-		// TODO implement here
-		return null;
+		System.out.println("Sisi: " + this.sisi);
 	}
 
-	/**
-	 * @param sisi 
-	 * @return
-	 */
 	public void aturSisi(double sisi) {
-		// TODO implement here
-		return null;
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @param sisi 
-	 * @return
-	 */
 	public void aturSisi(int sisi) {
-		// TODO implement here
-		return null;
+		this.sisi = sisi;
+	}
+	public double getSisi() {
+        return sisi;
+    }
+
+	@Override
+	public float menghitungLuas() {
+		return (float) (this.sisi * this.sisi);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuas(double sisi) {
+		return sisi * sisi;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuas(int sisi) {
+		if (params.length >= 1) {
+			return params[0] * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		return (float) (4 * this.sisi);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 4 * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 4 * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.println("Luas Persegi: " + menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
-	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+	@Override
+	public void mencetakKeliling() {
+		System.out.println("Keliling Persegi: " + menghitungKeliling());
 	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
 }

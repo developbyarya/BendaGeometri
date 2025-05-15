@@ -42,13 +42,15 @@ public abstract class Benda2D {
 	 * @param params 
 	 * @return
 	 */
-	public abstract double menghitungLuas(double[] params);
+	public abstract float menghitungLuas();
+
+	// public abstract double menghitungLuas(double[] param);
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	public abstract double menghitungLuas(int[] params);
+	// public abstract double menghitungLuas(int[] params);
 
 	/**
 	 * @return
@@ -59,13 +61,13 @@ public abstract class Benda2D {
 	 * @param params 
 	 * @return
 	 */
-	public abstract double menghitungKeliling(double[] params);
+	// public abstract double menghitungKeliling(double[] params);
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	public abstract double menghitungKeliling(int[] params);
+	// public abstract double menghitungKeliling(int[] params);
 
 	/**
 	 * @return
@@ -76,6 +78,18 @@ public abstract class Benda2D {
 	 * @return
 	 */
 	public abstract void mencetakKeliling();
+	public float getLuas(){
+		return this.luas;
+	}
+	public void setLuas(float luas){
+		this.luas = luas;
+	}
+	public float getKeliling(){
+		return this.Keliling;
+	}
+	public void setKeliling(float keliling){
+		this.Keliling = keliling;
+	}
 
 	public float getLuas(){
 		return this.luas;

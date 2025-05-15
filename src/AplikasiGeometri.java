@@ -16,7 +16,7 @@ public class AplikasiGeometri {
 	/**
 	 * @param String args[]
 	 */
-	public void static void main(void String args[]) {
+	public static void main( String args[]) {
 		// TODO implement here
 	}
 

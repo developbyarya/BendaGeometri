@@ -142,6 +142,8 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
+
+		// TODO implement here
 		System.out.println("Luas Permukaan: " + menghitungLuasPermukaan());
 	}
 }
