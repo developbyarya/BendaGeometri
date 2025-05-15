@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 /**
  * 
  */
@@ -65,8 +62,8 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	@Override
 	public double menghitungLuasPermukaan() {
 		double baseArea = super.getLuas(); // Get the base area from LayangLayang
-		double sideLength1 = super.getSisi1(); // Get one side length of the LayangLayang
-		double sideLength2 = super.getSisi2(); // Get the other side length of the LayangLayang
+		double sideLength1 = super.getSisiPendek(); // Get one side length of the LayangLayang
+		double sideLength2 = super.getSisiPanjang(); // Get the other side length of the LayangLayang
 		double slantHeight1 = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sideLength1 / 2, 2));
 		double slantHeight2 = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sideLength2 / 2, 2));
 		double lateralArea = (sideLength1 * slantHeight1) + (sideLength2 * slantHeight2);
@@ -78,19 +75,26 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
-		if (params.length >= 4) {
-			double d1 = params[0];
-			double d2 = params[1];
-			double height = params[2];
-			double sideLength = params[3];
-			double baseArea = (d1 * d2) / 2;
-			double slantHeight = Math.sqrt(Math.pow(height, 2) + Math.pow(sideLength / 2, 2));
-			double lateralArea = 4 * (0.5 * sideLength * slantHeight);
-			return baseArea + lateralArea;
-		}
-		return 0.0;
+	public double menghitungLuasPermukaan(double diagonal1, double diagonal2, double sisiPendek, double sisiPanjang) {
+		double luasAlas = super.menghitungLuas(diagonal1, diagonal2); // 0.5 * d1 * d2
+
+		// Asumsikan titik puncak limas tepat di atas pusat alas
+		// Maka proyeksi ke sisi pendek dan sisi panjang dari pusat alas:
+		double proyeksiKeSisiPendek = diagonal2 / 2.0;
+		double proyeksiKeSisiPanjang = diagonal1 / 2.0;
+
+		// Hitung tinggi segitiga sisi tegak dengan Pythagoras
+		double tinggiSegitigaPendek = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(proyeksiKeSisiPendek, 2));
+		double tinggiSegitigaPanjang = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(proyeksiKeSisiPanjang, 2));
+
+		// Hitung luas 4 sisi tegak (2 sisi pendek dan 2 sisi panjang)
+		double luasSegitigaPendek = 2 * (0.5 * sisiPendek * tinggiSegitigaPendek);
+		double luasSegitigaPanjang = 2 * (0.5 * sisiPanjang * tinggiSegitigaPanjang);
+
+		// Total luas permukaan
+		double luasPermukaan = luasAlas + luasSegitigaPendek + luasSegitigaPanjang;
+
+		return luasPermukaan;
 	}
 
 	/**
@@ -98,19 +102,26 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int[] params) {
-		if (params.length >= 4) {
-			double d1 = params[0];
-			double d2 = params[1];
-			double height = params[2];
-			double sideLength = params[3];
-			double baseArea = (d1 * d2) / 2;
-			double slantHeight = Math.sqrt(Math.pow(height, 2) + Math.pow(sideLength / 2, 2));
-			double lateralArea = 4 * (0.5 * sideLength * slantHeight);
-			return baseArea + lateralArea;
-		}
-		return 0.0;
+	public double menghitungLuasPermukaan(int diagonal1, int diagonal2, int sisiPendek, int sisiPanjang) {
+		double luasAlas = super.menghitungLuas(diagonal1, diagonal2); // 0.5 * d1 * d2
+
+		// Asumsikan titik puncak limas tepat di atas pusat alas
+		// Maka proyeksi ke sisi pendek dan sisi panjang dari pusat alas:
+		double proyeksiKeSisiPendek = diagonal2 / 2.0;
+		double proyeksiKeSisiPanjang = diagonal1 / 2.0;
+
+		// Hitung tinggi segitiga sisi tegak dengan Pythagoras
+		double tinggiSegitigaPendek = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(proyeksiKeSisiPendek, 2));
+		double tinggiSegitigaPanjang = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(proyeksiKeSisiPanjang, 2));
+
+		// Hitung luas 4 sisi tegak (2 sisi pendek dan 2 sisi panjang)
+		double luasSegitigaPendek = 2 * (0.5 * sisiPendek * tinggiSegitigaPendek);
+		double luasSegitigaPanjang = 2 * (0.5 * sisiPanjang * tinggiSegitigaPanjang);
+
+		// Total luas permukaan
+		double luasPermukaan = luasAlas + luasSegitigaPendek + luasSegitigaPanjang;
+
+		return luasPermukaan;
 	}
 
 	/**

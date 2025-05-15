@@ -75,6 +75,21 @@ public class LayangLayang extends Benda2D {
 		this.sisiPanjang = sisiPanjang;
 	}
 
+	public double getSisiPendek(){
+		return this.sisiPendek;
+	}
+
+	public double getSisiPanjang(){
+		return this.sisiPanjang;
+	}
+
+	public double getDiagonal1(){
+		return this.diagonal1;
+	}
+	public double getDiagonal2(){
+		return this.diagonal2;
+	}
+
 	@Override
 	public float menghitungLuas() {
 		return (float)(2 *(this.diagonal1 * this.diagonal2) / 2.0);
