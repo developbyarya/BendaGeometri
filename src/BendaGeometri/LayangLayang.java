@@ -76,25 +76,28 @@ public class LayangLayang extends Benda2D {
 	public void aturSisiPanjang(int sisiPanjang) {
 		this.sisiPanjang = sisiPanjang;
 	}
-
+	public double getDiagonal1() {
+		return diagonal1;
+	}
+	public double getDiagonal2() {
+		return diagonal2;
+	}
+	public double getSisiPendek() {
+		return sisiPendek;
+	}
+	public double getSisiPanjang() {
+		return sisiPanjang;
+	}
 	@Override
 	public float menghitungLuas() {
 		return (float)(2 *(this.diagonal1 * this.diagonal2) / 2.0);
 	}
-	@Override
-	public double menghitungLuas(double[] params) {
-		if (params.length >= 2) {
-			return (params[0] * params[1]) / 2.0;
-		}
-		return 0.0;
+	public double menghitungLuas(double diagonal1, double diagonal2) {
+		return (diagonal1 * diagonal2) / 2.0;
 	}
 
-	@Override
-	public double menghitungLuas(int[] params) {
-		if (params.length >= 2) {
-			return (params[0] * params[1]) / 2.0;
-		}
-		return 0.0;
+	public double menghitungLuas(int diagonal1, int diagonal2) {
+		return (diagonal1 * diagonal2) / 2.0;
 	}
 
 	@Override
@@ -102,20 +105,12 @@ public class LayangLayang extends Benda2D {
 		return (float)(2 * (this.sisiPendek + this.sisiPanjang));
 	}
 
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length >= 2) {
-			return 2 * (params[0] + params[1]);
-		}
-		return 0.0;
+	public double menghitungKeliling(double diagonal1, double diagonal2) {
+		return 2 * (diagonal1 + diagonal2);
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length >= 2) {
-			return 2 * (params[0] + params[1]);
-		}
-		return 0.0;
+	public double menghitungKeliling(int diagonal1, int diagonal2) {
+		return 2 * (diagonal1 + diagonal2);
 	}
 
 	@Override

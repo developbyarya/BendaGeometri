@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 public class Trapesium extends Benda2D {
 
     private double alasAtas;
@@ -114,21 +111,14 @@ public class Trapesium extends Benda2D {
         return sisiKanan;
     }
 
-    @Override
-    public double menghitungLuas(double[] params) {
-        if (params.length >= 3) {
-            return 0.5 * (params[0] + params[1]) * params[2]; 
-        }
-        return 0.0;
+    public double menghitungLuas(double alasAtas, double alasBawah, double tinggi) {
+        return 0.5 * (alasAtas + alasBawah) * tinggi;
     }
 
-    @Override
-    public double menghitungLuas(int[] params) {
-        if (params.length >= 3) {
-            return 0.5 * (params[0] + params[1]) * params[2];
-        }
-        return 0.0;
+    public double menghitungLuas(int alasAtas, int alasBawah, int tinggi) {
+        return 0.5 * (alasAtas + alasBawah) * tinggi;
     }
+
     @Override
     public float menghitungLuas() {
         return (float) (0.5 * (alasAtas + alasBawah) * tinggi);
@@ -139,22 +129,12 @@ public class Trapesium extends Benda2D {
         return (float) (alasAtas + alasBawah + sisiKiri + sisiKanan);
     }
 
-    @Override
-    public double menghitungKeliling(double[] params) {
-        double total = 0;
-        for (double p : params) total += p;
-        return total;
+    public double menghitungKeliling(double alasAtas, double alasBawah, double sisiKanan, double sisiKiri) {
+        return alasAtas + alasBawah + sisiKanan + sisiKiri;
     }
 
-    @Override
-    public double menghitungKeliling(int[] params) {
-        int total = 0;
-        for (int p : params) total += p;
-        return total;
-    }
-
-    public double hitungKeliling() {
-        return alasAtas + alasBawah + sisiKiri + sisiKanan;
+    public double menghitungKeliling(int alasAtas, int alasBawah, int sisiKanan, int sisiKiri) {
+        return alasAtas + alasBawah + sisiKanan + sisiKiri;
     }
 
     @Override
@@ -164,6 +144,6 @@ public class Trapesium extends Benda2D {
 
     @Override
     public void mencetakKeliling() {
-        System.out.printf("Keliling Trapesium: %.2f\n", hitungKeliling());
+        System.out.printf("Keliling Trapesium: %.2f\n", menghitungKeliling());
     }
 }

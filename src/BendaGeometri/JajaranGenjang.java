@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 public class JajaranGenjang extends Benda2D {
 
 	private double alas;
@@ -78,44 +75,28 @@ public class JajaranGenjang extends Benda2D {
 
 	@Override
 	public float menghitungLuas() {
-		return (float) (2 * (this.alas + this.sisiMiring));
+		return (float) (this.alas + this.sisiMiring);
 	}
 
-	@Override
-	public double menghitungLuas(double[] params) {
-		if (params.length >= 2) {
-			return params[0] * params[1];
-		}
-		return 0.0;
+	public double menghitungLuas(double alas, double sisiMiring) {
+		return (alas + sisiMiring);
 	}
 
-	@Override
-	public double menghitungLuas(int[] params) {
-		if (params.length >= 2) {
-			return params[0] * params[1];
-		}
-		return 0.0;
+	public double menghitungLuas(int alas, int sisiMiring) {
+		return (alas + sisiMiring);
 	}
 
 	@Override
 	public float menghitungKeliling() {
 		return (float) (2 * (this.alas + this.sisiMiring));
 	}
-
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length >= 2) {
-			return 2 * (params[0] + params[1]);
-		}
-		return 0.0;
+	
+	public double menghitungKeliling(double alas, double sisiMiring) {
+		return 2 * (alas + sisiMiring);
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length >= 2) {
-			return 2 * (params[0] + params[1]);
-		}
-		return 0.0;
+	public double menghitungKeliling(int alas, int sisiMiring) {
+		return 2 * (alas + sisiMiring);
 	}
 
 	@Override

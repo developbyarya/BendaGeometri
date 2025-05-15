@@ -96,41 +96,27 @@ public class Segitiga extends Benda2D {
 		return (float) (0.5 * alas * tinggi);
 	}
 
-	@Override
-	public double menghitungLuas(double[] params) {
-		if (params.length >= 2) {
-			return 0.5 * params[0] * params[1];
-		}
-		return 0.0;
+
+	public double menghitungLuas(double alas, double tinggi) {
+		return 0.5 * alas * tinggi;
+		
 	}
 
-	@Override
-	public double menghitungLuas(int[] params) {
-		if (params.length >= 2) {
-			return 0.5 * params[0] * params[1];
-		}
-		return 0.0;
+	public double menghitungLuas(int alas, int tinggi) {
+		return 0.5 * alas * tinggi;
+		
 	}
 
 	@Override
 	public float menghitungKeliling() {
 		return (float) (alas + sisiMiring1 + sisiMiring2);
 	}
-
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length == 3) {
-			return params[0] + params[1] + params[2];
-		}
-		return 0.0;
+	public double menghitungKeliling(double alas,double sisiMiring1, double sisiMiring2) {
+		return alas + sisiMiring1 + sisiMiring2;
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length == 3) {
-			return params[0] + params[1] + params[2];
-		}
-		return 0.0;
+	public double menghitungKeliling(int alas,int sisiMiring1, int sisiMiring2) {
+		return alas + sisiMiring1 + sisiMiring2;
 	}
 
 	@Override

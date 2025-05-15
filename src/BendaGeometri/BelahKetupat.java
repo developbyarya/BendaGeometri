@@ -74,20 +74,14 @@ public class BelahKetupat extends Benda2D {
 		return (float) ((diagonal1 * diagonal2) / 2);
 	}
 
-	@Override
-	public double menghitungLuas(double[] params) {
-		if (params.length >= 2) {
-			return (params[0] * params[1]) / 2;
-		}
-		return 0.0;
+
+
+	public double menghitungLuas(double diagonal1, double diagonal2) {
+		return (diagonal1 * diagonal2) / 2.0;
 	}
 
-	@Override
-	public double menghitungLuas(int[] params) {
-		if (params.length >= 2) {
-			return (params[0] * params[1]) / 2.0;
-		}
-		return 0.0;
+	public double menghitungLuas(int diagonal1, int diagonal2) {
+		return (diagonal1 * diagonal2) / 2;
 	}
 
 	@Override
@@ -95,20 +89,12 @@ public class BelahKetupat extends Benda2D {
 		return (float) (4 * this.sisi);
 	}
 
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length >= 1) {
-			return 4 * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(double sisi) {
+		return 4 * sisi;
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length >= 1) {
-			return 4 * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(int sisi) {
+		return 4 * sisi;
 	}
 
 	@Override

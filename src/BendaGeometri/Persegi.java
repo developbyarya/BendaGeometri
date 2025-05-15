@@ -1,6 +1,4 @@
 package BendaGeometri;
-import java.io.*;
-import java.util.*;
 public class Persegi extends Benda2D {
 
 	private double sisi;
@@ -42,10 +40,7 @@ public class Persegi extends Benda2D {
 	}
 
 	public double menghitungLuas(int sisi) {
-		if (params.length >= 1) {
-			return params[0] * params[0];
-		}
-		return 0.0;
+		return sisi * sisi;
 	}
 
 	@Override
@@ -53,20 +48,12 @@ public class Persegi extends Benda2D {
 		return (float) (4 * this.sisi);
 	}
 
-	@Override
-	public double menghitungKeliling(double[] params) {
-		if (params.length >= 1) {
-			return 4 * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(double sisi) {
+		return sisi * sisi;
 	}
 
-	@Override
-	public double menghitungKeliling(int[] params) {
-		if (params.length >= 1) {
-			return 4 * params[0];
-		}
-		return 0.0;
+	public double menghitungKeliling(int sisi) {
+		return sisi * sisi;
 	}
 
 	@Override
