@@ -3,291 +3,167 @@ package BendaGeometri;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
 public class Trapesium extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public Trapesium() {
-	}
+    private double alasAtas;
+    private double alasBawah;
+    private double tinggi;
+    private double sisiKiri;
+    private double sisiKanan;
 
-	/**
-	 * 
-	 */
-	private double alasAtas;
+    public Trapesium() {
+        this.alasAtas = 0;
+        this.alasBawah = 0;
+        this.tinggi = 0;
+        this.sisiKiri = 0;
+        this.sisiKanan = 0;
+    }
 
-	/**
-	 * 
-	 */
-	private double alasBawah;
+    public Trapesium(double alasAtas, double alasBawah, double tinggi, double sisiKiri, double sisiKanan) {
+        this.alasAtas = alasAtas;
+        this.alasBawah = alasBawah;
+        this.tinggi = tinggi;
+        this.sisiKiri = sisiKiri;
+        this.sisiKanan = sisiKanan;
+    }
 
-	/**
-	 * 
-	 */
-	private double tinggi;
+    public Trapesium(int alasAtas, int alasBawah, int tinggi, int sisiKiri, int sisiKanan) {
+        this.alasAtas = alasAtas;
+        this.alasBawah = alasBawah;
+        this.tinggi = tinggi;
+        this.sisiKiri = sisiKiri;
+        this.sisiKanan = sisiKanan;
+    }
 
-	/**
-	 * 
-	 */
-	private double sisiKiri;
+    public void cetakAlasAtas() {
+        System.out.println("Alas Atas: " + alasAtas);
+    }
 
-	/**
-	 * 
-	 */
-	private double sisiKanan;
+    public void cetakAlasBawah() {
+        System.out.println("Alas Bawah: " + alasBawah);
+    }
 
-	/**
-	 * @param alasAtas 
-	 * @param alasBawah 
-	 * @param tinggi 
-	 * @param sisiKiri 
-	 * @param sisiKanan
-	 */
-	public Trapesium(double alasAtas, double alasBawah, double tinggi, double sisiKiri, double sisiKanan) {
-		// TODO implement here
-	}
+    public void cetakTinggi() {
+        System.out.println("Tinggi: " + tinggi);
+    }
 
-	/**
-	 * @param alasAtas 
-	 * @param alasBawah 
-	 * @param tinggi 
-	 * @param sisiKiri 
-	 * @param sisiKanan
-	 */
-	public Trapesium(int alasAtas, int alasBawah, int tinggi, int sisiKiri, int sisiKanan) {
-		// TODO implement here
-	}
+    public void cetakSisiKiri() {
+        System.out.println("Sisi Kiri: " + sisiKiri);
+    }
 
-	/**
-	 * @return
-	 */
-	public void cetakAlasAtas() {
-		// TODO implement here
-		return null;
-	}
+    public void cetakSisiKanan() {
+        System.out.println("Sisi Kanan: " + sisiKanan);
+    }
 
-	/**
-	 * @return
-	 */
-	public void cetakAlasBawah() {
-		// TODO implement here
-		return null;
-	}
+    public void aturAlasAtas(double alasAtas) {
+        this.alasAtas = alasAtas;
+    }
 
-	/**
-	 * @return
-	 */
-	public void cetakTinggi() {
-		// TODO implement here
-		return null;
-	}
+    public void aturAlasAtas(int alasAtas) {
+        this.alasAtas = alasAtas;
+    }
 
-	/**
-	 * @return
-	 */
-	public void cetakSisiKiri() {
-		// TODO implement here
-		return null;
-	}
+    public void aturAlasBawah(double alasBawah) {
+        this.alasBawah = alasBawah;
+    }
 
-	/**
-	 * @return
-	 */
-	public void cetakSisiKanan() {
-		// TODO implement here
-		return null;
-	}
+    public void aturAlasBawah(int alasBawah) {
+        this.alasBawah = alasBawah;
+    }
 
-	/**
-	 * @param alasAtas 
-	 * @return
-	 */
-	public void aturAlasAtas(double alasAtas) {
-		// TODO implement here
-		return null;
-	}
+    public void aturTinggi(double tinggi) {
+        this.tinggi = tinggi;
+    }
 
-	/**
-	 * @param alasAtas 
-	 * @return
-	 */
-	public void aturAlasAtas(int alasAtas) {
-		// TODO implement here
-		return null;
-	}
+    public void aturTinggi(int tinggi) {
+        this.tinggi = tinggi;
+    }
 
-	/**
-	 * @param alasBawah 
-	 * @return
-	 */
-	public void aturAlasBawah(double alasBawah) {
-		// TODO implement here
-		return null;
-	}
+    public void aturSisiKiri(double sisiKiri) {
+        this.sisiKiri = sisiKiri;
+    }
 
-	/**
-	 * @param alasBawah 
-	 * @return
-	 */
-	public void aturAlasBawah(int alasBawah) {
-		// TODO implement here
-		return null;
-	}
+    public void aturSisiKiri(int sisiKiri) {
+        this.sisiKiri = sisiKiri;
+    }
 
-	/**
-	 * @param tinggi 
-	 * @return
-	 */
-	public void aturTinggi(double tinggi) {
-		// TODO implement here
-		return null;
-	}
+    public void aturSisiKanan(double sisiKanan) {
+        this.sisiKanan = sisiKanan;
+    }
 
-	/**
-	 * @param tinggi 
-	 * @return
-	 */
-	public void aturTinggi(int tinggi) {
-		// TODO implement here
-		return null;
-	}
+    public void aturSisiKanan(int sisiKanan) {
+        this.sisiKanan = sisiKanan;
+    }
+    public double getAlasAtas() {
+        return alasAtas;
+    }
 
-	/**
-	 * @param sisiKiri 
-	 * @return
-	 */
-	public void aturSisiKiri(double sisiKiri) {
-		// TODO implement here
-		return null;
-	}
+    public double getAlasBawah() {
+        return alasBawah;
+    }
 
-	/**
-	 * @param sisiKiri 
-	 * @return
-	 */
-	public void aturSisiKiri(int sisiKiri) {
-		// TODO implement here
-		return null;
-	}
+    public double getTinggi() {
+        return tinggi;
+    }
 
-	/**
-	 * @param sisiKanan 
-	 * @return
-	 */
-	public void aturSisiKanan(double sisiKanan) {
-		// TODO implement here
-		return null;
-	}
+    public double getSisiKiri() {
+        return sisiKiri;
+    }
 
-	/**
-	 * @param sisiKanan 
-	 * @return
-	 */
-	public void aturSisiKanan(int sisiKanan) {
-		// TODO implement here
-		return null;
-	}
+    public double getSisiKanan() {
+        return sisiKanan;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuas(double[] params) {
+        if (params.length >= 3) {
+            return 0.5 * (params[0] + params[1]) * params[2]; 
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuas(int[] params) {
+        if (params.length >= 3) {
+            return 0.5 * (params[0] + params[1]) * params[2];
+        }
+        return 0.0;
+    }
+    @Override
+    public float menghitungLuas() {
+        return (float) (0.5 * (alasAtas + alasBawah) * tinggi);
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
-	}
+    @Override
+    public float menghitungKeliling() {
+        return (float) (alasAtas + alasBawah + sisiKiri + sisiKanan);
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungKeliling(double[] params) {
+        double total = 0;
+        for (double p : params) total += p;
+        return total;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungKeliling(int[] params) {
+        int total = 0;
+        for (int p : params) total += p;
+        return total;
+    }
 
-	/**
-	 * @return
-	 */
-	public void mencetakLuas() {
-		// TODO implement here
-		return null;
-	}
+    public double hitungKeliling() {
+        return alasAtas + alasBawah + sisiKiri + sisiKanan;
+    }
 
-	/**
-	 * @return
-	 */
-	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
-	}
+    @Override
+    public void mencetakLuas() {
+        System.out.printf("Luas Trapesium: %.2f\n", menghitungLuas());
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
+    @Override
+    public void mencetakKeliling() {
+        System.out.printf("Keliling Trapesium: %.2f\n", hitungKeliling());
+    }
 }

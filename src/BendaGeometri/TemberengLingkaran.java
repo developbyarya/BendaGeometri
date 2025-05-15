@@ -3,129 +3,103 @@ package BendaGeometri;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
 public class TemberengLingkaran extends JuringLingkaran {
 
-	/**
-	 * Default constructor
-	 */
+	private double sudut;
+
 	public TemberengLingkaran() {
+		this.sudut = 0;
 	}
 
-	/**
-	 * 
-	 */
-	private void sudut: double;
-
-	/**
-	 * 
-	 */
-	private Segitiga segitigaJuring;
-
-
-
-	/**
-	 * @param radius 
-	 * @param sudut
-	 */
 	public TemberengLingkaran(double radius, double sudut) {
-		// TODO implement here
+		super(radius, sudut);
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param radius 
-	 * @param sudut
-	 */
 	public TemberengLingkaran(int radius, int sudut) {
-		// TODO implement here
+		super(radius, sudut);
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakSudut() {
-		// TODO implement here
-		return null;
+		System.out.println("Sudut: " + sudut + " derajat");
 	}
 
-	/**
-	 * @param sudut 
-	 * @return
-	 */
 	public void aturSudut(double sudut) {
-		// TODO implement here
-		return null;
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param sudut 
-	 * @return
-	 */
 	public void aturSudut(int sudut) {
-		// TODO implement here
-		return null;
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	private double hitungLuasSegitigaDariSudut(double radius, double sudutDerajat) {
+		return Segitiga.menghitungLuasDuaSisiSudut(radius, radius, sudutDerajat);
+	}
+
+	@Override
+	public float menghitungLuas() {
+		double radius = getRadius();
+		double luasJuring = (sudut / 360.0) * Math.PI * radius * radius;
+		double luasSegitiga = hitungLuasSegitigaDariSudut(radius, sudut);
+		return (float) (luasJuring - luasSegitiga);
+	}
+
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			double radius = params[0];
+			double sudut = params[1];
+			double luasJuring = (sudut / 360.0) * Math.PI * radius * radius;
+			double luasSegitiga = 0.5 * radius * radius * Math.sin(Math.toRadians(sudut));
+			return luasJuring - luasSegitiga;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return menghitungLuas(new double[] { params[0], params[1] });
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		double radius = getRadius();
+		double busur = 2 * Math.PI * radius * (sudut / 360.0);
+		double chord = 2 * radius * Math.sin(Math.toRadians(sudut / 2.0));
+		return (float) (busur + chord);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			double r = params[0];
+			double s = params[1];
+			double busur = 2 * Math.PI * r * (s / 360.0);
+			double chord = 2 * r * Math.sin(Math.toRadians(s / 2.0));
+			return busur + chord;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return menghitungKeliling(new double[] { params[0], params[1] });
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.printf("Luas Tembereng Lingkaran: %.2f\n", menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+		System.out.printf("Keliling Tembereng Lingkaran: %.2f\n", menghitungKeliling());
 	}
-
 }

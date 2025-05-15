@@ -1,227 +1,123 @@
 package BendaGeometri;
-
 import java.io.*;
 import java.util.*;
-
-/**
- * 
- */
 public class BelahKetupat extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public BelahKetupat() {
-	}
-
-	/**
-	 * 
-	 */
 	private double diagonal1;
-
-	/**
-	 * 
-	 */
 	private double diagonal2;
-
-	/**
-	 * 
-	 */
 	private double sisi;
 
-	/**
-	 * @param diagonal1 
-	 * @param diagonal2 
-	 * @param sisi
-	 */
+	public BelahKetupat() {
+		this.diagonal1 = 0;
+		this.diagonal2 = 0;
+		this.sisi = 0;
+	}
 	public BelahKetupat(double diagonal1, double diagonal2, double sisi) {
-		// TODO implement here
+		this.diagonal1 = diagonal1;
+		this.diagonal2 = diagonal2;
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @param diagonal1 
-	 * @param diagonal2 
-	 * @param sisi
-	 */
 	public BelahKetupat(int diagonal1, int diagonal2, int sisi) {
-		// TODO implement here
+		this.diagonal1 = diagonal1;
+		this.diagonal2 = diagonal2;
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakDiagonal1() {
-		// TODO implement here
-		return null;
+		System.out.println("Diagonal 1: " + this.diagonal1);
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakDiagonal2() {
-		// TODO implement here
-		return null;
+		System.out.println("Diagonal 2: " + this.diagonal2);
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakSisi() {
-		// TODO implement here
-		return null;
+		System.out.println("Sisi: " + this.sisi);
 	}
 
-	/**
-	 * @param diagonal1 
-	 * @return
-	 */
 	public void aturDiagonal1(double diagonal1) {
-		// TODO implement here
-		return null;
+		this.diagonal1 = diagonal1;
 	}
 
-	/**
-	 * @param diagonal1 
-	 * @return
-	 */
 	public void aturDiagonal1(int diagonal1) {
-		// TODO implement here
-		return null;
+		this.diagonal1 = diagonal1;
 	}
 
-	/**
-	 * @param diagonal2 
-	 * @return
-	 */
 	public void aturDiagonal2(double diagonal2) {
-		// TODO implement here
-		return null;
+		this.diagonal2 = diagonal2;
 	}
 
-	/**
-	 * @param diagonal2 
-	 * @return
-	 */
 	public void aturDiagonal2(int diagonal2) {
-		// TODO implement here
-		return null;
+		this.diagonal2 = diagonal2;
 	}
 
-	/**
-	 * @param sisi 
-	 * @return
-	 */
 	public void aturSisi(double sisi) {
-		// TODO implement here
-		return null;
+		this.sisi = sisi;
 	}
 
-	/**
-	 * @param sisi 
-	 * @return
-	 */
 	public void aturSisi(int sisi) {
-		// TODO implement here
-		return null;
+		this.sisi = sisi;
+	}
+	public double getDiagonal1() {
+		return diagonal1;
+	}
+	public double getDiagonal2() {
+		return diagonal2;
+	}
+	public double getSisi() {
+		return sisi;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
+	public float menghitungLuas() {
+		return (float) ((diagonal1 * diagonal2) / 2);
+	}
+
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return (params[0] * params[1]) / 2;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return (params[0] * params[1]) / 2.0;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		return (float) (4 * this.sisi);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 4 * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 4 * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.println("Luas Belah Ketupat: " + menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+		System.out.println("Keliling Belah Ketupat: " + menghitungKeliling());
 	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
 }

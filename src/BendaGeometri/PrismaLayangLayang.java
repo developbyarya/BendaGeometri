@@ -97,7 +97,7 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
 	 */
 	public void mencetakVolume() {
 		// TODO implement here
-		return null;
+		
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
 	 */
 	public void mencetakLuasPermukaan() {
 		// TODO implement here
-		return null;
+		
 	}
 
 	/**

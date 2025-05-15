@@ -50,6 +50,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	/**
 	 * @return
 	 */
+	@Override
 	public float menghitungVolume() {
 		// TODO implement here
 		return 0.0f;
@@ -59,6 +60,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
+	@Override
 	public double menghitungVolume(double params) {
 		// TODO implement here
 		return 0.0d;
@@ -68,6 +70,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
+	@Override
 	public double menghitungVolume(int params) {
 		// TODO implement here
 		return 0.0d;
@@ -76,6 +79,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	/**
 	 * @return
 	 */
+	@Override
 	public float menghitungLuasPermukaan() {
 		// TODO implement here
 		return 0.0f;
@@ -85,6 +89,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
+	@Override
 	public double menghitungLuasPermukaan(double params) {
 		// TODO implement here
 		return 0.0d;
@@ -94,6 +99,7 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
+	@Override
 	public double menghitungLuasPermukaan(int params) {
 		// TODO implement here
 		return 0.0d;
@@ -102,17 +108,19 @@ public class KerucutTerpancung extends Kerucut implements IBenda3D {
 	/**
 	 * @return
 	 */
+	@Override
 	public void mencetakVolume() {
 		// TODO implement here
-		return null;
+		
 	}
 
 	/**
 	 * @return
 	 */
+	@Override
 	public void mencetakLuasPermukaan() {
 		// TODO implement here
-		return null;
+		
 	}
 
 }

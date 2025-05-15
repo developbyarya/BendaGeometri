@@ -1,161 +1,85 @@
 package BendaGeometri;
-
 import java.io.*;
 import java.util.*;
-
-/**
- * 
- */
 public class Lingkaran extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public Lingkaran() {
-	}
-
-	/**
-	 * 
-	 */
 	private double radius;
 
-	/**
-	 * @param radius
-	 */
+	public Lingkaran() {
+		this.radius = 0;
+	}
+
 	public Lingkaran(double radius) {
-		// TODO implement here
+		this.radius = radius;
 	}
 
-	/**
-	 * @param radius
-	 */
 	public Lingkaran(int radius) {
-		// TODO implement here
+		this.radius = radius;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakRadius() {
-		// TODO implement here
-		return null;
+		System.out.println("Radius: " + this.radius);
 	}
 
-	/**
-	 * @param radius 
-	 * @return
-	 */
 	public void aturRadius(double radius) {
-		// TODO implement here
-		return null;
+		this.radius = radius;
 	}
 
-	/**
-	 * @param radius 
-	 * @return
-	 */
 	public void aturRadius(int radius) {
-		// TODO implement here
-		return null;
+		this.radius = radius;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	public double getRadius() {
+		return this.radius;
+	}
+	@Override
+	public float menghitungLuas() {
+		return (float) (Math.PI * this.radius * this.radius);
+	}
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return Math.PI * params[0] * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return Math.PI * params[0] * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		return (float) (2 * Math.PI * this.radius);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 2 * Math.PI * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 1) {
+			return 2 * Math.PI * params[0];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.println("Luas Lingkaran: " + menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+		System.out.println("Keliling Lingkaran: " + menghitungKeliling());
 	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
 }

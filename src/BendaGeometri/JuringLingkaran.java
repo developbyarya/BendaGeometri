@@ -3,122 +3,100 @@ package BendaGeometri;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
 public class JuringLingkaran extends Lingkaran {
 
-	/**
-	 * Default constructor
-	 */
-	public JuringLingkaran() {
-	}
-
-	/**
-	 * 
-	 */
 	private double sudut;
 
-	/**
-	 * @param radius 
-	 * @param sudut
-	 */
+	public JuringLingkaran() {
+		this.sudut = 0;
+	}
+
 	public JuringLingkaran(double radius, double sudut) {
-		// TODO implement here
+		super(radius); 
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param radius 
-	 * @param sudut
-	 */
 	public JuringLingkaran(int radius, int sudut) {
-		// TODO implement here
+		super(radius);
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakSudut() {
-		// TODO implement here
-		return null;
+		System.out.println("Sudut juring: " + sudut + " derajat");
 	}
 
-	/**
-	 * @param sudut 
-	 * @return
-	 */
 	public void aturSudut(double sudut) {
-		// TODO implement here
-		return null;
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param sudut 
-	 * @return
-	 */
 	public void aturSudut(int sudut) {
-		// TODO implement here
-		return null;
+		this.sudut = sudut;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	public double getSudut() {
+		return sudut;
+	}
+
+	public double getRadius() {
+		return super.getRadius();
+	}
+
+	@Override
+	public float menghitungLuas() {
+		double r = getRadius();
+		return (float) ((sudut / 360.0) * Math.PI * r * r);
+	}
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			double r = params[0];
+			double sudut = params[1];
+			return (sudut / 360.0) * Math.PI * r * r;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return menghitungLuas(new double[]{params[0], params[1]});
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		double r = getRadius();
+		double kelilingBusur = 2 * Math.PI * r * (sudut / 360.0);
+		return (float) (kelilingBusur + 2 * r);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			double r = params[0];
+			double sudut = params[1];
+			double busur = 2 * Math.PI * r * (sudut / 360.0);
+			return busur + 2 * r;
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return menghitungKeliling(new double[]{params[0], params[1]});
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.printf("Luas Juring Lingkaran: %.2f\n", menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+		System.out.printf("Keliling Juring Lingkaran: %.2f\n", menghitungKeliling());
 	}
-
 }

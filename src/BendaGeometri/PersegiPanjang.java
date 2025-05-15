@@ -1,210 +1,114 @@
 package BendaGeometri;
-
 import java.io.*;
 import java.util.*;
-
-/**
- * 
- */
 public class PersegiPanjang extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public PersegiPanjang() {
-	}
-
-	/**
-	 * 
-	 */
 	private double panjang;
-
-	/**
-	 * 
-	 */
 	private double lebar;
 
-	/**
-	 * @param panjang 
-	 * @param lebar
-	 */
+	public PersegiPanjang() {
+		this.panjang = 0;
+		this.lebar = 0;
+	}
+
 	public PersegiPanjang(double panjang, double lebar) {
-		// TODO implement here
+		this.panjang = panjang;
+		this.lebar = lebar;
 	}
 
-	/**
-	 * @param panjang 
-	 * @param lebar
-	 */
 	public PersegiPanjang(int panjang, double lebar) {
-		// TODO implement here
+		this.panjang = panjang;
+		this.lebar = lebar;
 	}
 
-	/**
-	 * @param panjang 
-	 * @param lebar
-	 */
 	public PersegiPanjang(double panjang, int lebar) {
-		// TODO implement here
+		this.panjang = panjang;
+		this.lebar = lebar;
 	}
 
-	/**
-	 * @param panjang 
-	 * @param lebar
-	 */
 	public PersegiPanjang(int panjang, int lebar) {
-		// TODO implement here
+		this.panjang = panjang;
+		this.lebar = lebar;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakPanjang() {
-		// TODO implement here
-		return null;
+		System.out.println("Panjang: " + this.panjang);
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakLebar() {
-		// TODO implement here
-		return null;
+		System.out.println("Lebar: " + this.lebar);
 	}
 
-	/**
-	 * @param panjang 
-	 * @return
-	 */
 	public void aturPanjang(double panjang) {
-		// TODO implement here
-		return null;
+		this.panjang = panjang;
 	}
 
-	/**
-	 * @param panjang 
-	 * @return
-	 */
 	public void aturPanjang(int panjang) {
-		// TODO implement here
-		return null;
+		this.panjang = panjang;
 	}
 
-	/**
-	 * @param lebar 
-	 * @return
-	 */
 	public void aturLebar(double lebar) {
-		// TODO implement here
-		return null;
+		this.lebar = lebar;
 	}
 
-	/**
-	 * @param lebar 
-	 * @return
-	 */
 	public void aturLebar(int lebar) {
-		// TODO implement here
-		return null;
+		this.lebar = lebar;
+	}
+	public double getPanjang() {
+		return panjang;
+	}
+	public double getLebar() {
+		return lebar;
+	}
+	@Override
+	public float menghitungLuas() {
+		return (float)(this.panjang * this.lebar);
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return params[0] * params[1];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return params[0] * params[1];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		return (float)(2 * (this.panjang + this.lebar));
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return 2 * (params[0] + params[1]);
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return 2 * (params[0] + params[1]);
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+        System.out.printf("Luas Persegi Panjang: %.2f\n", menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+        System.out.printf("Keliling Persegi Panjang: %.2f\n", menghitungKeliling());
 	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
 }
