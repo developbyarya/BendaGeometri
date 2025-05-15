@@ -43,16 +43,9 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double[] params) {
-		if (params.length >= 3) {
-			double d1 = params[0];
-			double d2 = params[1];
-			double height = params[2];
+	public double menghitungVolume(double d1, double d2) {
 			double baseArea = (d1 * d2) / 2; // Area of the LayangLayang base
-			return (1.0 / 3.0) * baseArea * height;
-		}
-		return 0.0;
+			return (1.0 / 3.0) * baseArea * tinggi;
 	}
 
 	/**
@@ -60,16 +53,9 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int[] params) {
-		if (params.length >= 3) {
-			double d1 = params[0];
-			double d2 = params[1];
-			double height = params[2];
+	public double menghitungVolume(int d1, int d2) {
 			double baseArea = (d1 * d2) / 2; // Area of the LayangLayang base
-			return (1.0 / 3.0) * baseArea * height;
-		}
-		return 0.0;
+			return (1.0 / 3.0) * baseArea * tinggi;
 	}
 
 	/**
