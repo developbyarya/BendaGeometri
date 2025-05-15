@@ -3,225 +3,128 @@ package BendaGeometri;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
 public class JajaranGenjang extends Benda2D {
 
-	/**
-	 * Default constructor
-	 */
-	public JajaranGenjang() {
-	}
-
-	/**
-	 * 
-	 */
 	private double alas;
-
-	/**
-	 * 
-	 */
 	private double tinggi;
-
-	/**
-	 * 
-	 */
 	private double sisiMiring;
 
-	/**
-	 * @param alas 
-	 * @param tinggi 
-	 * @param sisiMiring
-	 */
+	public JajaranGenjang() {
+		this.alas = 0;
+		this.tinggi = 0;
+		this.sisiMiring = 0;
+	}
+
 	public JajaranGenjang(double alas, double tinggi, double sisiMiring) {
-		// TODO implement here
+		this.alas = alas;
+		this.tinggi = tinggi;
+		this.sisiMiring = sisiMiring;
 	}
 
-	/**
-	 * @param alas 
-	 * @param tinggi 
-	 * @param sisiMiring
-	 */
 	public JajaranGenjang(int alas, int tinggi, int sisiMiring) {
-		// TODO implement here
+		this.alas = alas;
+		this.tinggi = tinggi;
+		this.sisiMiring = sisiMiring;
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakAlas() {
-		// TODO implement here
-		return null;
+		System.out.println("Alas: " + this.alas);
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakTinggi() {
-		// TODO implement here
-		return null;
+		System.out.println("Tinggi: " + this.tinggi);
 	}
 
-	/**
-	 * @return
-	 */
 	public void cetakSisiMiring() {
-		// TODO implement here
-		return null;
+		System.out.println("Sisi Miring: " + this.sisiMiring);
 	}
 
-	/**
-	 * @param alas 
-	 * @return
-	 */
 	public void aturAlas(double alas) {
-		// TODO implement here
-		return null;
+		this.alas = alas;
 	}
 
-	/**
-	 * @param alas 
-	 * @return
-	 */
 	public void aturAlas(int alas) {
-		// TODO implement here
-		return null;
+		this.alas = alas;
 	}
 
-	/**
-	 * @param tinggi 
-	 * @return
-	 */
 	public void aturTinggi(double tinggi) {
-		// TODO implement here
-		return null;
+		this.tinggi = tinggi;
 	}
 
-	/**
-	 * @param tinggi 
-	 * @return
-	 */
 	public void aturTinggi(int tinggi) {
-		// TODO implement here
-		return null;
+		this.tinggi = tinggi;
 	}
 
-	/**
-	 * @param sisiMiring 
-	 * @return
-	 */
 	public void aturSisiMiring(double sisiMiring) {
-		// TODO implement here
-		return null;
+		this.sisiMiring = sisiMiring;
 	}
 
-	/**
-	 * @param sisiMiring 
-	 * @return
-	 */
 	public void aturSisiMiring(int sisiMiring) {
-		// TODO implement here
-		return null;
+		this.sisiMiring = sisiMiring;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+
+	public double getAlas() {
+		return alas;
+	}
+
+	public double getTinggi() {
+		return tinggi;
+	}
+
+	public double getSisiMiring() {
+		return sisiMiring;
+	}
+
+	@Override
+	public float menghitungLuas() {
+		return (float) (2 * (this.alas + this.sisiMiring));
+	}
+
+	@Override
 	public double menghitungLuas(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return params[0] * params[1];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungLuas(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return params[0] * params[1];
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public float menghitungKeliling() {
-		// TODO implement here
-		return 0.0f;
+		return (float) (2 * (this.alas + this.sisiMiring));
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return 2 * (params[0] + params[1]);
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @param params 
-	 * @return
-	 */
+	@Override
 	public double menghitungKeliling(int[] params) {
-		// TODO implement here
-		return 0.0d;
+		if (params.length >= 2) {
+			return 2 * (params[0] + params[1]);
+		}
+		return 0.0;
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakLuas() {
-		// TODO implement here
-		return null;
+		System.out.println("Luas Jajaran Genjang: " + menghitungLuas());
 	}
 
-	/**
-	 * @return
-	 */
+	@Override
 	public void mencetakKeliling() {
-		// TODO implement here
-		return null;
+		System.out.println("Keliling Jajaran Genjang: " + menghitungKeliling());
 	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungLuas(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract float menghitungKeliling();
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(double[] params);
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public abstract double menghitungKeliling(int[] params);
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakLuas();
-
-	/**
-	 * @return
-	 */
-	public abstract void mencetakKeliling();
-
 }

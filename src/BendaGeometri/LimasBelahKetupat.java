@@ -96,13 +96,16 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	// Implementing mencetakVolume method
 	@Override
 	public void mencetakVolume() {
+		// TODO implement here
 		System.out.println("Volume: " + menghitungVolume());
 	}
 
 	// Implementing mencetakLuasPermukaan method
 	@Override
 	public void mencetakLuasPermukaan() {
+		// TODO implement her
 		System.out.println("Luas Permukaan: " + menghitungLuasPermukaan());
+
 	}
 
 	// Example helper method to calculate lateral area

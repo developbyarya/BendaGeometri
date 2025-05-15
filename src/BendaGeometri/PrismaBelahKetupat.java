@@ -17,6 +17,7 @@ public class PrismaBelahKetupat extends BelahKetupat implements IBenda3D {
 	private double tinggi;
 
 
+
 // Constructor
     public PrismaBelahKetupat(double diagonal1, double diagonal2, double tinggi) {
         this.tinggi = tinggi;

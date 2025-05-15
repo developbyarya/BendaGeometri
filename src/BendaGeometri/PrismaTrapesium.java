@@ -3,144 +3,81 @@ package BendaGeometri;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
 public class PrismaTrapesium extends Trapesium implements IBenda3D {
+    private double tinggiPrisma;
+    public PrismaTrapesium() {
+        super();
+        this.tinggiPrisma = 0;
+    }
 
-	/**
-	 * Default constructor
-	 */
-	public PrismaTrapesium() {
-	}
+    public PrismaTrapesium(Trapesium bendaAlas, double tinggiPrisma) {
+        super(
+            bendaAlas.getAlasAtas(), 
+            bendaAlas.getAlasBawah(), 
+            bendaAlas.getTinggi(), 
+            bendaAlas.getSisiKiri(), 
+            bendaAlas.getSisiKanan()
+        );
+        this.tinggiPrisma = tinggiPrisma;
+    }
+    public PrismaTrapesium(Trapesium bendaAlas, int tinggiPrisma) {
+        this(bendaAlas, (double) tinggiPrisma);
+    }
 
-	/**
-	 * 
-	 */
-	private double tinggi;
+    public double getTinggiPrisma() {
+        return tinggiPrisma;
+    }
 
-	/**
-	 * 
-	 */
-	private Trapesium bendaAlas;
+    @Override
+    public double menghitungVolume() {
+        return super.menghitungLuas() * tinggiPrisma;
+    }
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaTrapesium(Trapesium bendaAlas, double tinggi) {
-		// TODO implement here
-	}
+    @Override
+    public double menghitungVolume(double[] params) {
+        if (params.length >= 1) {
+            return super.menghitungLuas() * params[0]; 
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaTrapesium(Trapesium bendaAlas, int tinggi) {
-		// TODO implement here
-	}
+    @Override
+    public double menghitungVolume(int[] params) {
+        if (params.length >= 1) {
+            return menghitungVolume(new double[] { params[0] });
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
-	}
+    @Override
+    public double menghitungLuasPermukaan() {
+        return 2 * super.menghitungLuas() + super.menghitungKeliling() * tinggiPrisma;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(double  params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(double[] params) {
+        if (params.length >= 1) {
+            return 2 * super.menghitungLuas() + super.menghitungKeliling() * params[0];
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(int  params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(int[] params) {
+        if (params.length >= 1) {
+            return menghitungLuasPermukaan(new double[] { params[0] });
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
+    @Override
+    public void mencetakVolume() {
+        System.out.printf("Volume Prisma Trapesium: %.2f\n", menghitungVolume());
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @return
-	 */
-	public void mencetakVolume() {
-		// TODO implement here
-		return null;
-	}
-
-	/**
-	 * @return
-	 */
-	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		return null;
-	}
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(): float();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakVolume(): void();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakLuasPermukaan(): void();
-
+    // Cetak luas permukaan
+    @Override
+    public void mencetakLuasPermukaan() {
+        System.out.printf("Luas Permukaan Prisma Trapesium: %.2f\n", menghitungLuasPermukaan());
+    }
 }

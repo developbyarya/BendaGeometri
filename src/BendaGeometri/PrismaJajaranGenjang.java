@@ -1,146 +1,76 @@
 package BendaGeometri;
-
 import java.io.*;
 import java.util.*;
-
-/**
- * 
- */
 public class PrismaJajaranGenjang extends JajaranGenjang implements IBenda3D {
+    private double tinggiPrisma;
 
-	/**
-	 * Default constructor
-	 */
-	public PrismaJajaranGenjang() {
-	}
+    public PrismaJajaranGenjang() {
+        super();
+        this.tinggiPrisma = 0;
+    }
 
-	/**
-	 * 
-	 */
-	private double tinggi;
+    public PrismaJajaranGenjang(JajaranGenjang bendaAlas, double tinggiPrisma) {
+        super(bendaAlas.getAlas(), bendaAlas.getTinggi(), bendaAlas.getSisiMiring());
+        this.tinggiPrisma = tinggiPrisma;
+    }
 
-	/**
-	 * 
-	 */
-	private JajaranGenjang bendaAlas;
+    public PrismaJajaranGenjang(JajaranGenjang bendaAlas, int tinggiPrisma) {
+        this(bendaAlas, (double) tinggiPrisma);
+    }
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaJajaranGenjang(JajaranGenjang bendaAlas, double tinggi) {
-		// TODO implement here
-	}
+    @Override
+    public double menghitungVolume() {
+        return super.menghitungLuas() * tinggiPrisma;
+    }
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public PrismaJajaranGenjang(JajaranGenjang bendaAlas, int tinggi) {
-		// TODO implement here
-	}
+    @Override
+    public double menghitungVolume(double[] params) {
+        if(params.length >= 3) {
+            double[] paramsAlas = {params[0], params[1], params[2]};
+            return super.menghitungLuas(paramsAlas) * params[2];
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
-	}
+    @Override
+    public double menghitungVolume(int[] params) {
+        if(params.length >= 3) {
+            int[] paramsAlas = {params[0], params[1], params[2]};
+            return super.menghitungLuas(paramsAlas) * params[2];
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan() {
+        return 2 * super.menghitungLuas() + super.menghitungKeliling() * tinggiPrisma;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public double menghitungLuasPermukaan(double[] params) {
+        if(params.length >= 3) {
+            double[] paramsAlas = {params[0], params[1], params[2]};
+            return 2 * super.menghitungLuas(paramsAlas) + super.menghitungKeliling(paramsAlas) * params[2];
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @return
-	 */
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
+    @Override
+    public double menghitungLuasPermukaan(int[] params) {
+        if(params.length >= 3) {
+            int[] paramsAlas = {params[0], params[1], params[2]};
+            return 2 * super.menghitungLuas(paramsAlas) + super.menghitungKeliling(paramsAlas) * params[2];
+        }
+        return 0.0;
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
+    @Override
+    public void mencetakVolume() {
+        System.out.printf("Volume Prisma Jajaran Genjang: %.2f\n", menghitungVolume());
+    }
 
-	/**
-	 * @param params 
-	 * @return
-	 */
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @return
-	 */
-	public void mencetakVolume() {
-		// TODO implement here
-		return null;
-	}
-
-	/**
-	 * @return
-	 */
-	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		return null;
-	}
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungVolume(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(): float();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:double[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void menghitungLuasPermukaan(in params:int[ ]): double();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakVolume(): void();
-
-	/**
-	 * 
-	 */
-	public abstract void mencetakLuasPermukaan(): void();
-
+    @Override
+    public void mencetakLuasPermukaan() {
+        System.out.printf("Luas Permukaan Prisma Jajaran Genjang: %.2f\n", menghitungLuasPermukaan());
+    }
 }
