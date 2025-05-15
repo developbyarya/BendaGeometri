@@ -1,6 +1,4 @@
 package BendaGeometri;
-import java.io.*;
-import java.util.*;
 public class BelahKetupat extends Benda2D {
 
 	private double diagonal1;
@@ -76,13 +74,14 @@ public class BelahKetupat extends Benda2D {
 
 
 
+
 	public double menghitungLuas(double diagonal1, double diagonal2) {
 		return (diagonal1 * diagonal2) / 2.0;
 	}
 
 	public double menghitungLuas(int diagonal1, int diagonal2) {
 		return (diagonal1 * diagonal2) / 2;
-	}
+  }
 
 	@Override
 	public float menghitungKeliling() {

@@ -6,12 +6,6 @@ package BendaGeometri;
 public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
 
 	/**
-	 * Default constructor
-	 */
-	public PrismaLayangLayang() {
-	}
-
-	/**
 	 * 
 	 */
 	private double tinggi;
@@ -38,13 +32,10 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
 		this.tinggi = tinggi;
 	}
 
- 	@Override
-    public double menghitungVolume(int[] params) {
-        // Example implementation: Assuming params[0] is base area and params[1] is height
-        if (params.length >= 2) {
-            return params[0] * params[1];
-        }
-        return 0.0d;
+ 	// @Override
+    public double menghitungVolume(double diagonal1, double diagonal2) {
+        double luas_alas = (diagonal1 * diagonal2) / 2;
+        return luas_alas * this.tinggi;
     }
 
     @Override
@@ -53,20 +44,20 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
         return 2*super.getLuas() + super.getKeliling() * tinggi;
     }
 
-    @Override
-    public double menghitungLuasPermukaan(double[] params) {
-        // Example implementation: Assuming params[0] is base area and params[1] is lateral area
-        if (params.length >= 2) {
-            return params[0] + params[1];
-        }
-        return 0.0d;
+    public double menghitungLuasPermukaan(double diagonal1, double diagonal2, double sisi_pendek, double sisi_panjang) {
+        // Alas dan Tutup
+        double luasBendaDasar = (diagonal1*diagonal2)/2;
+        double luasSisiPendek = (sisi_pendek*tinggi);
+        double luasSisiPanjang = (sisi_panjang*tinggi);
+
+
+        return 2*luasBendaDasar + 2*luasSisiPendek + 2*luasSisiPanjang;
     }
 
     // Other methods from IBenda3D must also be implemented here
-    @Override
-    public double menghitungVolume(double[] params) {
-        // TODO: Implement logic
-        return 0.0d;
+    public double menghitungVolume(int diagonal1, int diagonal2) {
+        double luasAlas = (diagonal1 * diagonal2) / 2;
+        return luasAlas * tinggi;
     }
 
     @Override
@@ -75,11 +66,15 @@ public class PrismaLayangLayang extends LayangLayang implements IBenda3D {
         return super.getLuas() * tinggi;
     }
 
-    @Override
-    public double menghitungLuasPermukaan(int[] params) {
+    public double menghitungLuasPermukaan(int diagonal1, int diagonal2, int sisi_pendek, int sisi_panjang) {
         // TODO: Implement logic
 
-        return 0.0d;
+        double luasBendaDasar = (diagonal1*diagonal2)/2;
+        double luasSisiPendek = (sisi_pendek*tinggi);
+        double luasSisiPanjang = (sisi_panjang*tinggi);
+
+
+        return 2*luasBendaDasar + 2*luasSisiPendek + 2*luasSisiPanjang;
 
     }
 

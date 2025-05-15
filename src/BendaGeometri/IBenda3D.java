@@ -11,13 +11,11 @@ public interface IBenda3D {
 	/**
 	 * 
 	 */
-	public abstract double menghitungVolume(double params[]);
 	public abstract double menghitungVolume();
 
 	/**
 	 * 
 	 */
-	public abstract double menghitungVolume(int params[]);
 
 	/**
 	 * 
@@ -27,12 +25,10 @@ public interface IBenda3D {
 	/**
 	 * 
 	 */
-	public abstract double menghitungLuasPermukaan(double params[]);
 
 	/**
 	 * 
 	 */
-	public abstract double menghitungLuasPermukaan(int params[]);
 
 	/**
 	 * 
