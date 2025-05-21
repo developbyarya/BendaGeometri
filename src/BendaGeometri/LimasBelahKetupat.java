@@ -13,6 +13,7 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 */
 	public LimasBelahKetupat() {
             super();
+			this.tinggi = 0;
 	}
 
 	/**
