@@ -31,7 +31,7 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 */
 	@Override
 	public double menghitungVolume() {
-		double baseArea = super.getLuas(); // Get the base area from LayangLayang
+		double baseArea = super.menghitungLuas();
 		return (1.0 / 3.0) * baseArea * tinggi;
 	}
 
@@ -61,7 +61,7 @@ public class LimasLayangLayang extends LayangLayang implements IBenda3D {
 	 */
 	@Override
 	public double menghitungLuasPermukaan() {
-		double baseArea = super.getLuas(); // Get the base area from LayangLayang
+		double baseArea = super.menghitungLuas(); // Get the base area from LayangLayang
 		double sideLength1 = super.getSisiPendek(); // Get one side length of the LayangLayang
 		double sideLength2 = super.getSisiPanjang(); // Get the other side length of the LayangLayang
 		double slantHeight1 = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sideLength1 / 2, 2));
