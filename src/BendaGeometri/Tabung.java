@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 /**
  * 
  */
@@ -12,6 +9,7 @@ public class Tabung extends Lingkaran implements IBenda3D {
 	 * Default constructor
 	 */
 	public Tabung() {
+		super();
 	}
 
 	/**
@@ -22,80 +20,79 @@ public class Tabung extends Lingkaran implements IBenda3D {
 	/**
 	 * 
 	 */
-	private Lingkaran bendaAlas;
+	/**
+	 * @param tinggi
+	 */
+	public Tabung(double radius, double tinggi) {
+		// TODO implement here
+		super(radius);
+		this.tinggi = tinggi;
+	}
 
 	/**
 	 * @param bendaAlas 
 	 * @param tinggi
 	 */
-	public Tabung(Lingkaran bendaAlas, double tinggi) {
-		// TODO implement here
-	}
-
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public Tabung(Lingkaran bendaAlas, int tinggi) {
-		// TODO implement here
+	public Tabung(double radius, int tinggi) {
+		super(radius);
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungVolume() {
+		double luasAlas = super.menghitungLuas();
+		return luasAlas * tinggi;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double tinggi) {
+		double luasAlas = super.menghitungLuas();
+		return luasAlas * tinggi;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double tinggi, double jarijari) {
+		double luasAlas = super.menghitungLuas(jarijari);
+		return luasAlas * tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan() {
+		double luasAlas = super.menghitungLuas();
+		double selimut = 2 * Math.PI * tinggi;
+		return 2*luasAlas + selimut;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(double tinggi) {
+		double luasAlas = super.menghitungLuas();
+		double selimut = 2 * Math.PI * tinggi;
+		return 2*luasAlas + selimut;
+	}
+
+	/**
+	 * @param params 
+	 * @return
+	 */
+	public double menghitungLuasPermukaan(double tinggi, double radius) {
+		double luasAlas = super.menghitungLuas(radius);
+		double selimut = 2 * Math.PI * tinggi;
+		return 2*luasAlas + selimut;
 	}
 
 	/**
@@ -103,7 +100,7 @@ public class Tabung extends Lingkaran implements IBenda3D {
 	 */
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
+		System.out.println("Volume Tabung: " + menghitungVolume());
 		
 	}
 
@@ -112,7 +109,7 @@ public class Tabung extends Lingkaran implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
-		// TODO implement here
+		System.out.println("LP Tabung: " + menghitungLuasPermukaan());
 		
 	}
 }

@@ -12,6 +12,8 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	 * Default constructor
 	 */
 	public Kerucut() {
+		super();
+		this.tinggi = 0;
 	}
 
 	/**
@@ -22,31 +24,71 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	/**
 	 * 
 	 */
-	private Lingkaran bendaAlas;
+
+	/**
+	 * @param tinggi
+	 */
+	public Kerucut(double radius, double tinggi) {
+		super(radius);
+		this.tinggi = tinggi;
+	}
 
 	/**
 	 * @param bendaAlas 
 	 * @param tinggi
 	 */
-	public Kerucut(Lingkaran bendaAlas, double tinggi) {
-		// TODO implement here
-	}
-
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public Kerucut(Lingkaran bendaAlas, int tinggi) {
-		// TODO implement here
+	public Kerucut(int radius, int tinggi) {
+		super(radius);
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungVolume() {
+		double luasAlas = menghitungLuas();
+		return (1/3.0) * luasAlas * tinggi;
+	}
+
+	/**
+	 * @param params 
+	 * @return
+	 */
+	public double menghitungVolume(double radius, double tinggi) {
+		double luasAlas = menghitungLuas(radius);
+		return (1/3.0) * luasAlas * tinggi;
+	}
+
+	/**
+	 * @param params 
+	 * @return
+	 */
+	public double menghitungVolume(int radius, int tinggi) {
+		double luasAlas = menghitungLuas(radius);
+		return (1/3.0) * luasAlas * tinggi;
+	}
+
+	/**
+	 * @return
+	 */
+	@Override
+	public double menghitungLuasPermukaan() {
+		double luasAlas = super.menghitungLuas();
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(super.getRadius())); 
+		double selimut = Math.PI * super.getRadius() * sisiMiring;
+		return luasAlas + sisiMiring;
+	}
+
+	/**
+	 * @return
+	 */
+	@Override
+	public double menghitungLuasPermukaan(double tinggi, double radius) {
+		double luasAlas = super.menghitungLuas();
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius)); 
+		double selimut = Math.PI * radius * sisiMiring;
+		return luasAlas + sisiMiring;
 	}
 
 	/**
@@ -54,48 +96,11 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	 * @return
 	 */
 	@Override
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @return
-	 */
-	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(int tinggi, int radius) {
+		double luasAlas = super.menghitungLuas();
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius)); 
+		double selimut = Math.PI * radius * sisiMiring;
+		return luasAlas + sisiMiring;
 	}
 
 	/**
@@ -103,7 +108,7 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	 */
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
+		System.out.println("Volume kerucut: " + this.menghitungVolume());
 		
 	}
 
@@ -112,7 +117,7 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
-		// TODO implement here
+		System.out.println("LP kerucut: " + this.menghitungLuasPermukaan());
 		
 	}
 }
