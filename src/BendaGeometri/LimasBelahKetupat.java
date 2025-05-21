@@ -12,6 +12,7 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 * Default constructor
 	 */
 	public LimasBelahKetupat() {
+            super();
 	}
 
 	/**
@@ -27,28 +28,16 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 * @param bendaAlas 
 	 * @param tinggi
 	 */
-	public LimasBelahKetupat(double tinggi) {
+	public LimasBelahKetupat(double d1, double d2, double sisi, double tinggi) {
 		// TODO implement here
+                super(d1, d2, sisi);
 		this.tinggi = tinggi;
 	}
 
-	/**
-	 * @param bendaAlas 
-	 * @param tinggi
-	 */
-	public LimasBelahKetupat(BelahKetupat bendaAlas, int tinggi) {
-		// TODO implement here
-	}
 
 	// Implementing menghitungVolume methods
-	@Override
-	public double menghitungVolume(double[] params) {
-		// Contoh : params[0] is base area and params[1] is height
-		if (params.length >= 2) {
-			return (1.0 / 3.0) * params[0] * params[1];
-		}
-		return 0;
-	}
+	
+	
 
 	@Override
 	public double menghitungVolume() {
@@ -56,14 +45,22 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 		super.menghitungLuas(); // Assuming BelahKetupat has a getLuas() method
 		return (1.0 / 3.0) * super.getLuas() * tinggi;
 	}
+        
+        public double menghitungVolume(double luasAlas, double tinggi) {
+            
+                return (1.0 / 3.0) * luasAlas * tinggi;
+	
+	
+	}
+        public double menghitungVolume(double d1, double d2, double tinggi) {
+                double luasAlas = super.menghitungLuas(d1, d2);
+                return (1.0 / 3.0) * luasAlas * tinggi;
+	}
 
-	@Override
-	public double menghitungVolume(int[] params) {
-		// Example implementation: Assuming params[0] is base area and params[1] is height
-		if (params.length >= 2) {
-			return (1.0 / 3.0) * params[0] * params[1];
-		}
-		return 0;
+	
+	public double menghitungVolume(int luasAlas, int tinggi) {
+            return (1.0 / 3.0) * luasAlas * tinggi;
+
 	}
 
 	// Implementing menghitungLuasPermukaan methods
@@ -75,16 +72,14 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 		return baseArea + lateralArea;
 	}
 
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
+	public double menghitungLuasPermukaan(double diagonal1, double diagonal2, double tinggi, double sisi) {
 		// Example implementation: Assuming params[0] is base area and params[1] is lateral area
-		if (params.length >= 2) {
-			return params[0] + params[1];
-		}
-		return 0;
+		double baseArea = super.menghitungLuas(diagonal1, diagonal2); // Assuming BelahKetupat has a getLuas() method
+		double lateralArea = calculateLateralArea(diagonal1, diagonal2, sisi); // Custom method to calculate lateral area
+		return baseArea + lateralArea;
 	}
 
-	@Override
+	
 	public double menghitungLuasPermukaan(int[] params) {
 		// Example implementation: Assuming params[0] is base area and params[1] is lateral area
 		if (params.length >= 2) {
@@ -116,6 +111,20 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 		// Calculate the slant height (assuming tinggi is the perpendicular height of the pyramid)
 		double diagonal1 = super.getDiagonal1(); // Assuming getDiagonal1() returns the first diagonal of the rhombus
 		double diagonal2 = super.getDiagonal2(); // Assuming getDiagonal2() returns the second diagonal of the rhombus
+		double slantHeight = Math.sqrt(Math.pow(tinggi, 2) + Math.pow((diagonal1 / 2), 2));
+	
+		// Calculate the area of one triangular face
+		double triangleArea = 0.5 * sideLength * slantHeight;
+	
+		// Total lateral area (4 triangular faces)
+		return 4 * triangleArea;
+	}
+        private double calculateLateralArea(double diagonal1, double diagonal2, double sisi) {
+		// Get the side length of the rhombus (assuming BelahKetupat has a method to calculate it)
+		double sideLength = sisi; // Assuming getSisi() returns the side length of the rhombus
+	
+		// Calculate the slant height (assuming tinggi is the perpendicular height of the pyramid)
+		 // Assuming getDiagonal2() returns the second diagonal of the rhombus
 		double slantHeight = Math.sqrt(Math.pow(tinggi, 2) + Math.pow((diagonal1 / 2), 2));
 	
 		// Calculate the area of one triangular face
