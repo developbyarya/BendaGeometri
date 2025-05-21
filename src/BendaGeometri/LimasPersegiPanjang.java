@@ -12,6 +12,8 @@ public class LimasPersegiPanjang extends PersegiPanjang implements IBenda3D {
 	 * Default constructor
 	 */
 	public LimasPersegiPanjang() {
+		super();
+		this.tinggi = 0;
 	}
 
 	/**
@@ -20,82 +22,117 @@ public class LimasPersegiPanjang extends PersegiPanjang implements IBenda3D {
 	private double tinggi;
 
 	/**
-	 * 
-	 */
-	private PersegiPanjang bendaAlas;
-
-	/**
-	 * @param bendaAlas 
+	 * @param panjang
+	 * @param lebar 
 	 * @param tinggi
 	 */
-	public LimasPersegiPanjang(PersegiPanjang bendaAlas, double tinggi) {
-		// TODO implement here
+	public LimasPersegiPanjang(double panjang, double lebar, double tinggi) {
+		super(panjang, lebar);
+		this.tinggi = tinggi;
 	}
 
 	/**
-	 * @param bendaAlas 
+	 * @param panjang
+	 * @param lebar 
 	 * @param tinggi
 	 */
-	public LimasPersegiPanjang(PersegiPanjang bendaAlas, int tinggi) {
-		// TODO implement here
+	public LimasPersegiPanjang(int panjang, int lebar, int tinggi) {
+		super(panjang, lebar);
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungVolume() {
+		double luasAlas = menghitungLuas();
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
-	 * @param params 
+	 * @param panjang
+	 * @param lebar 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double panjang, double lebar, double tinggi) {
+		double luasAlas = menghitungLuas(panjang, lebar);
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
-	 * @param params 
+	 * @param panjang
+	 * @param lebar 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(int panjang, int lebar, int tinggi) {
+		double luasAlas = menghitungLuas(panjang, lebar);
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungLuasPermukaan() {
+		double luasAlas = menghitungLuas();
+		double panjang = getPanjang();
+		double lebar = getLebar();
+		
+		// Calculate the height of triangular faces
+		double sisiMiringPanjang = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(lebar/2, 2));
+		double sisiMiringLebar = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(panjang/2, 2));
+		
+		// Calculate triangular face areas
+		double luasSegitigaPanjang = 0.5 * panjang * sisiMiringPanjang;
+		double luasSegitigaLebar = 0.5 * lebar * sisiMiringLebar;
+		
+		// Total surface area = base area + 2 triangular faces on panjang side + 2 triangular faces on lebar side
+		return luasAlas + 2 * luasSegitigaPanjang + 2 * luasSegitigaLebar;
 	}
 
 	/**
-	 * @param params 
+	 * @param panjang
+	 * @param lebar 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(double panjang, double lebar, double tinggi) {
+		double luasAlas = menghitungLuas(panjang, lebar);
+		
+		// Calculate the height of triangular faces
+		double sisiMiringPanjang = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(lebar/2, 2));
+		double sisiMiringLebar = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(panjang/2, 2));
+		
+		// Calculate triangular face areas
+		double luasSegitigaPanjang = 0.5 * panjang * sisiMiringPanjang;
+		double luasSegitigaLebar = 0.5 * lebar * sisiMiringLebar;
+		
+		// Total surface area = base area + 2 triangular faces on panjang side + 2 triangular faces on lebar side
+		return luasAlas + 2 * luasSegitigaPanjang + 2 * luasSegitigaLebar;
 	}
 
 	/**
-	 * @param params 
+	 * @param panjang
+	 * @param lebar 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(int panjang, int lebar, int tinggi) {
+		double luasAlas = menghitungLuas(panjang, lebar);
+		
+		// Calculate the height of triangular faces
+		double sisiMiringPanjang = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(lebar/2, 2));
+		double sisiMiringLebar = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(panjang/2, 2));
+		
+		// Calculate triangular face areas
+		double luasSegitigaPanjang = 0.5 * panjang * sisiMiringPanjang;
+		double luasSegitigaLebar = 0.5 * lebar * sisiMiringLebar;
+		
+		// Total surface area = base area + 2 triangular faces on panjang side + 2 triangular faces on lebar side
+		return luasAlas + 2 * luasSegitigaPanjang + 2 * luasSegitigaLebar;
 	}
 
 	/**
@@ -103,8 +140,7 @@ public class LimasPersegiPanjang extends PersegiPanjang implements IBenda3D {
 	 */
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
-		
+		System.out.println("Volume limas persegi panjang: " + this.menghitungVolume());
 	}
 
 	/**
@@ -112,7 +148,6 @@ public class LimasPersegiPanjang extends PersegiPanjang implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		
+		System.out.println("LP limas persegi panjang: " + this.menghitungLuasPermukaan());
 	}
 }

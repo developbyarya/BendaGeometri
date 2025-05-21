@@ -12,6 +12,8 @@ public class LimasPersegi extends Persegi implements IBenda3D {
 	 * Default constructor
 	 */
 	public LimasPersegi() {
+		super();
+		this.tinggi = 0;
 	}
 
 	/**
@@ -20,82 +22,85 @@ public class LimasPersegi extends Persegi implements IBenda3D {
 	private double tinggi;
 
 	/**
-	 * 
-	 */
-	private Persegi bendaAlas;
-
-	/**
-	 * @param bendaAlas 
+	 * @param sisi 
 	 * @param tinggi
 	 */
-	public LimasPersegi(Persegi bendaAlas, double tinggi) {
-		// TODO implement here
+	public LimasPersegi(double sisi, double tinggi) {
+		super(sisi);
+		this.tinggi = tinggi;
 	}
 
 	/**
-	 * @param bendaAlas 
+	 * @param sisi 
 	 * @param tinggi
 	 */
-	public LimasPersegi(Persegi bendaAlas, int tinggi) {
-		// TODO implement here
+	public LimasPersegi(int sisi, int tinggi) {
+		super(sisi);
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungVolume() {
+		double luasAlas = menghitungLuas();
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
-	 * @param params 
+	 * @param sisi 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double sisi, double tinggi) {
+		double luasAlas = menghitungLuas(sisi);
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
-	 * @param params 
+	 * @param sisi 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(int sisi, int tinggi) {
+		double luasAlas = menghitungLuas(sisi);
+		return (1/3.0) * luasAlas * tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungLuasPermukaan() {
+		double luasAlas = menghitungLuas();
+		double sisiSegitiga = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(getSisi()/2, 2));
+		double luasSegitiga = 0.5 * getSisi() * sisiSegitiga;
+		return luasAlas + 4 * luasSegitiga;
 	}
 
 	/**
-	 * @param params 
+	 * @param sisi 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(double params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(double sisi, double tinggi) {
+		double luasAlas = menghitungLuas(sisi);
+		double sisiSegitiga = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sisi/2, 2));
+		double luasSegitiga = 0.5 * sisi * sisiSegitiga;
+		return luasAlas + 4 * luasSegitiga;
 	}
 
 	/**
-	 * @param params 
+	 * @param sisi 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(int sisi, int tinggi) {
+		double luasAlas = menghitungLuas(sisi);
+		double sisiSegitiga = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(sisi/2, 2));
+		double luasSegitiga = 0.5 * sisi * sisiSegitiga;
+		return luasAlas + 4 * luasSegitiga;
 	}
 
 	/**
@@ -103,8 +108,7 @@ public class LimasPersegi extends Persegi implements IBenda3D {
 	 */
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
-		
+		System.out.println("Volume limas persegi: " + this.menghitungVolume());
 	}
 
 	/**
@@ -112,7 +116,6 @@ public class LimasPersegi extends Persegi implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		
+		System.out.println("LP limas persegi: " + this.menghitungLuasPermukaan());
 	}
 }

@@ -43,7 +43,7 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	public double menghitungVolume() {
 		// Example implementation: Assuming tinggi and base area are already set
 		super.menghitungLuas(); // Assuming BelahKetupat has a getLuas() method
-		return (1.0 / 3.0) * super.getLuas() * tinggi;
+		return (1.0 / 3.0) * super.menghitungLuas() * tinggi;
 	}
         
         public double menghitungVolume(double luasAlas, double tinggi) {
