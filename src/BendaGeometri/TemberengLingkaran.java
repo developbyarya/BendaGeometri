@@ -21,19 +21,23 @@ public class TemberengLingkaran extends JuringLingkaran {
         double s = getSudut();
         double luasJuring    = super.menghitungLuas();
         double luasSegitiga = hitungLuasSegitiga(r, s);
-        return (float) (luasJuring - luasSegitiga);
+        float luasTembereng = (float) (luasJuring - luasSegitiga);
+        return luasTembereng;
     }
 
-    /** Overload eksplisit dengan double */
+
     public double menghitungLuas(double radius, double sudut) {
-        double luasJuring    = (sudut / 360.0) *super.menghitungLuas(radius);
+        double luasJuring = (sudut / 360.0) *super.menghitungLuas(radius);
         double luasSegitiga = hitungLuasSegitiga(radius, sudut);
-        return luasJuring - luasSegitiga;
+        double luasTembereng = luasJuring - luasSegitiga;
+        return luasTembereng;
     }
 
-    /** Overload eksplisit dengan int */
     public double menghitungLuas(int radius, int sudut) {
-        return menghitungLuas((double) radius, (double) sudut);
+         double luasJuring = (sudut / 360.0) *super.menghitungLuas(radius);
+        double luasSegitiga = hitungLuasSegitiga(radius, sudut);
+        double luasTembereng = luasJuring - luasSegitiga;
+        return luasTembereng;
     }
 
     /**

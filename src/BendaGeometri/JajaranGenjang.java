@@ -75,28 +75,34 @@ public class JajaranGenjang extends Benda2D {
 
 	@Override
 	public float menghitungLuas() {
-		return (float) (this.alas + this.sisiMiring);
+		float luas = (float) (this.alas * this.tinggi);
+		return luas;
 	}
 
-	public double menghitungLuas(double alas, double sisiMiring) {
-		return (alas + sisiMiring);
+	public double menghitungLuas(double alas, double tinggi) {
+		double luas = alas * tinggi;
+		return luas;
 	}
 
-	public double menghitungLuas(int alas, int sisiMiring) {
-		return (alas + sisiMiring);
+	public double menghitungLuas(int alas, int tinggi) {
+		double luas = alas * tinggi;
+		return luas;
 	}
 
 	@Override
 	public float menghitungKeliling() {
-		return (float) (2 * (this.alas + this.sisiMiring));
+		float keliling = (float) (2 * (this.alas + this.sisiMiring));
+		return keliling;
 	}
 	
 	public double menghitungKeliling(double alas, double sisiMiring) {
-		return 2 * (alas + sisiMiring);
+		double keliling = 2 * (alas + sisiMiring);
+		return keliling;
 	}
 
 	public double menghitungKeliling(int alas, int sisiMiring) {
-		return 2 * (alas + sisiMiring);
+		double keliling = 2 * (alas + sisiMiring);
+		return keliling;
 	}
 
 	@Override

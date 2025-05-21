@@ -1,6 +1,5 @@
 package BendaGeometri;
-import java.io.*;
-import java.util.*;
+
 public class Lingkaran extends Benda2D {
 
 	private double radius;
@@ -34,25 +33,30 @@ public class Lingkaran extends Benda2D {
 	}
 	@Override
 	public float menghitungLuas() {
-		return (float) (Math.PI * this.radius * this.radius);
+		float luas = (float) (Math.PI * this.radius * this.radius);
+		return luas;
 	}
 
 	public double menghitungLuas(double radius) {
-			return Math.PI * radius * radius;
+			double luas = Math.PI * radius * radius;
+			return luas;
 	}
 
 	public double menghitungLuas(int radius) {
-			return Math.PI * radius * radius;
+			double luas = Math.PI * radius * radius;
+			return luas;
 		}
 
 
 	@Override
 	public float menghitungKeliling() {
-		return (float) (2 * Math.PI * this.radius);
+		float keliling = (float) (2 * Math.PI * this.radius);
+		return keliling;
 	}
 
 	public double menghitungKeliling(double radius) {
-		return 2 * Math.PI * radius;
+		double keliling = 2 * Math.PI * radius;
+		return keliling;
 	}
 
 	public double menghitungKeliling(int radius) {

@@ -60,28 +60,34 @@ public class PersegiPanjang extends Benda2D {
 	}
 	@Override
 	public float menghitungLuas() {
-		return (float)(this.panjang * this.lebar);
+		float luas = (float)(this.panjang * this.lebar);
+		return luas;
 	}
 
 	public double menghitungLuas(double panjang, double lebar) {
-		return panjang * lebar;
+		double luas = panjang * lebar;
+		return luas;
 	}
 
 	public double menghitungLuas(int panjang, int lebar) {
-		return panjang * lebar;
+		double luas = panjang * lebar;
+		return luas;
 	}
 
 	@Override
 	public float menghitungKeliling() {
-		return (float)(2 * (this.panjang + this.lebar));
+		float keliling = (float)(2 * (this.panjang + this.lebar));
+		return keliling;
 	}
 
 	public double menghitungKeliling(double panjang, double lebar) {
-		return 2 * (panjang + lebar);
+		double keliling = 2 * (panjang + lebar);
+		return keliling;
 	}
 
 	public double menghitungKeliling(int panjang, int lebar) {
-		return 2 * (panjang + lebar);
+		double keliling = 2 * (panjang + lebar);
+		return keliling;
 	}
 
 	@Override

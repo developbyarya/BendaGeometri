@@ -91,33 +91,37 @@ public class LayangLayang extends Benda2D {
 		return this.diagonal2;
 	}
 
-
 	@Override
 	public float menghitungLuas() {
-		return (float)(2 *(this.diagonal1 * this.diagonal2) / 2.0);
+		float luas = (float) ((this.diagonal1 * this.diagonal2) / 2.0);
+		return luas;
 	}
 
 	public double menghitungLuas(double diagonal1, double diagonal2) {
-		return (diagonal1 * diagonal2) / 2.0;
+		double luas = (diagonal1 * diagonal2) / 2.0;
+		return luas;
 	}
 
 	public double menghitungLuas(int diagonal1, int diagonal2) {
-		return (diagonal1 * diagonal2) / 2.0;
+		double luas = (diagonal1 * diagonal2) / 2.0;
+		return luas;
 	}
 
 	@Override
 	public float menghitungKeliling() {
-		return (float)(2 * (this.sisiPendek + this.sisiPanjang));
+		float keliling = (float)(2 * (this.sisiPendek + this.sisiPanjang));
+		return keliling;
 	}
 
 
 	public double menghitungKeliling(int sisiPendek, int sisiPanjang) {
-		return 2*sisiPendek + 2*sisiPanjang;
+		double keliling = 2 * (sisiPendek + sisiPanjang); 
+		return keliling;
 	}
 
 	public double menghitungKeliling(double sisiPendek, double sisiPanjang) {
-		return 2*sisiPendek + 2*sisiPanjang;
-
+		double keliling = 2 * (sisiPendek + sisiPanjang); 
+		return keliling;
 	}
 
 	@Override

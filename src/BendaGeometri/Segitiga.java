@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 public class Segitiga extends Benda2D {
 
 	private double alas;
@@ -93,30 +90,35 @@ public class Segitiga extends Benda2D {
 
 	@Override
 	public float menghitungLuas() {
-		return (float) (0.5 * alas * tinggi);
+		float luas = (float) (0.5 * this.alas * this.tinggi);
+		return luas;
 	}
 
 
 	public double menghitungLuas(double alas, double tinggi) {
-		return 0.5 * alas * tinggi;
+		double luas = 0.5 * alas * tinggi;
+		return luas;
 		
 	}
 
 	public double menghitungLuas(int alas, int tinggi) {
-		return 0.5 * alas * tinggi;
-		
+		double luas = 0.5 * alas * tinggi;
+		return luas;
 	}
 
 	@Override
 	public float menghitungKeliling() {
-		return (float) (alas + sisiMiring1 + sisiMiring2);
+		float keliling = (float) (this.alas + this.sisiMiring1 + this.sisiMiring2);
+		return keliling;
 	}
 	public double menghitungKeliling(double alas,double sisiMiring1, double sisiMiring2) {
-		return alas + sisiMiring1 + sisiMiring2;
+		double keliling = alas + sisiMiring1 + sisiMiring2;
+		return keliling;
 	}
 
 	public double menghitungKeliling(int alas,int sisiMiring1, int sisiMiring2) {
-		return alas + sisiMiring1 + sisiMiring2;
+		double keliling = alas + sisiMiring1 + sisiMiring2;
+		return keliling;
 	}
 
 	@Override
