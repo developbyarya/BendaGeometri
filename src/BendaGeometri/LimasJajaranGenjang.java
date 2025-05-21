@@ -49,7 +49,7 @@ public class LimasJajaranGenjang extends JajaranGenjang implements IBenda3D {
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
+	public double menghitungVolume() {
 		double luasAlas = bendaAlas.menghitungLuas();
 		return (1/3.0) * luasAlas * tinggi;
 	}
@@ -77,16 +77,16 @@ public class LimasJajaranGenjang extends JajaranGenjang implements IBenda3D {
 	 */
 	@Override
 	public double menghitungLuasPermukaan() {
-		float luasAlas =  super.menghitungLuas();
-		float alas =  super.getAlas();
-		float tinggiAlas =  super.getTinggi();
-		float miring =  super.getMiring();
+		double luasAlas =  super.menghitungLuas();
+		double alas =  super.getAlas();
+		double tinggiAlas =  super.getTinggi();
+		double miring =  super.getSisiMiring();
 		
 		// Menghitung luas segitiga pada sisi tegak
-		float luasSegitiga1 = (1/2.0) * alas * tinggi;
-		float luasSegitiga2 = (1/2.0) * miring * tinggi;
-		float luasSegitiga3 = (1/2.0) * alas * tinggi;
-		float luasSegitiga4 = (1/2.0) * miring * tinggi;
+		double luasSegitiga1 = (1/2.0) * alas * tinggi;
+		double luasSegitiga2 = (1/2.0) * miring * tinggi;
+		double luasSegitiga3 = (1/2.0) * alas * tinggi;
+		double luasSegitiga4 = (1/2.0) * miring * tinggi;
 		
 		return luasAlas + luasSegitiga1 + luasSegitiga2 + luasSegitiga3 + luasSegitiga4;
 	}
@@ -97,14 +97,14 @@ public class LimasJajaranGenjang extends JajaranGenjang implements IBenda3D {
 	 */
 
 	public double menghitungLuasPermukaan(double panjang_alas, double tinggi_alas, double sisi_miring_alas, double tinggi) {
-		float luasAlas =  super.menghitungLuas(panjang_alas, tinggi_alas);
+		double luasAlas =  super.menghitungLuas(panjang_alas, tinggi_alas);
 	
 		
 		// Menghitung luas segitiga pada sisi tegak
-		float luasSegitiga1 = (1/2.0) * panjang_alas * tinggi;
-		float luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
-		float luasSegitiga3 = (1/2.0) * panjang_alas * tinggi;
-		float luasSegitiga4 = (1/2.0) * sisi_miring_alas * tinggi;
+		double luasSegitiga1 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
+		double luasSegitiga3 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga4 = (1/2.0) *  sisi_miring_alas * tinggi;
 		
 		return luasAlas + luasSegitiga1 + luasSegitiga2 + luasSegitiga3 + luasSegitiga4;
 	}
@@ -113,16 +113,19 @@ public class LimasJajaranGenjang extends JajaranGenjang implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
+	
 	public double menghitungLuasPermukaan(int panjang_alas, int tinggi_alas, int sisi_miring_alas, int tinggi) {
-		float luasAlas =  super.menghitungLuas(panjang_alas, tinggi_alas);
+		double luasAlas =  super.menghitungLuas(panjang_alas, tinggi_alas);
 	
 		
+		
 		// Menghitung luas segitiga pada sisi tegak
-		float luasSegitiga1 = (1/2.0) * panjang_alas * tinggi;
-		float luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
-		float luasSegitiga3 = (1/2.0) * panjang_alas * tinggi;
-		float luasSegitiga4 = (1/2.0) * sisi_miring_alas * tinggi;
+		double luasSegitiga1 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
+		double luasSegitiga3 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga4 = (1/2.0) *  sisi_miring_alas * tinggi;
+		
+		
 		
 		return luasAlas + luasSegitiga1 + luasSegitiga2 + luasSegitiga3 + luasSegitiga4;
 	}
