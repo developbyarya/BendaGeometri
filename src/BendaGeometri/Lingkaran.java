@@ -3,6 +3,7 @@ package BendaGeometri;
 public class Lingkaran extends Benda2D {
 
 	private double radius;
+        private float luas, keliling;
 
 	public Lingkaran() {
 		this.radius = 0;
@@ -33,8 +34,8 @@ public class Lingkaran extends Benda2D {
 	}
 	@Override
 	public float menghitungLuas() {
-		float luas = (float) (Math.PI * this.radius * this.radius);
-		return luas;
+		this.luas = (float) (Math.PI * this.radius * this.radius);
+                return (this.luas);
 	}
 
 	public double menghitungLuas(double radius) {
@@ -50,8 +51,8 @@ public class Lingkaran extends Benda2D {
 
 	@Override
 	public float menghitungKeliling() {
-		float keliling = (float) (2 * Math.PI * this.radius);
-		return keliling;
+		this.keliling = (float) (2 * Math.PI * this.radius);
+        return this.keliling;
 	}
 
 	public double menghitungKeliling(double radius) {

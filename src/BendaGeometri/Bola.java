@@ -12,18 +12,20 @@ public class Bola extends Lingkaran implements IBenda3D {
 	 * Default constructor
 	 */
 	public Bola() {
+            super();
 	}
 
 	/**
 	 * 
 	 */
-	private double radius;
+	private double radius, volume, luas_permukaan;
 
 	/**
 	 * @param radius
 	 */
 	public Bola(double radius) {
 		// TODO implement here
+                super(radius);
 	}
 
 	/**
@@ -31,64 +33,61 @@ public class Bola extends Lingkaran implements IBenda3D {
 	 */
 	public Bola(int radius) {
 		// TODO implement here
+                super(radius);
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
+	public double menghitungVolume() {
 		// TODO implement here
-		return 0.0f;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungVolume(double[] params) {
-		// TODO implement here
-		return 0.0d;
+                this.volume =  (4.0/3.0) * super.getLuas() * radius;
+		return volume;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int[] params) {
+	
+	public double menghitungVolume(double radius) {
 		// TODO implement here
-		return 0.0d;
-	}
-
-	/**
-	 * @return
-	 */
-	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
+		return 4.0/3.0 * super.menghitungLuas(radius) * radius;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
+	
+	public double menghitungVolume(int radius) {
 		// TODO implement here
-		return 0.0d;
+		return 4.0/3.0 * super.menghitungLuas(radius) * radius;
+	}
+
+	
+	@Override
+	public double menghitungLuasPermukaan() {
+		// TODO implement here
+                this.luas_permukaan = 2 * super.getKeliling() * radius;
+                return this.luas_permukaan;
+	}
+
+	
+	public double menghitungLuasPermukaan(int radius) {
+		// TODO implement here
+		return 2 * super.menghitungKeliling(radius) * radius;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int[] params) {
+	
+	public double menghitungLuasPermukaan(double radius) {
 		// TODO implement here
-		return 0.0d;
+		return 2 * super.menghitungKeliling(radius) * radius;
 	}
 
 	/**
@@ -97,6 +96,7 @@ public class Bola extends Lingkaran implements IBenda3D {
 	@Override
 	public void mencetakVolume() {
 		// TODO implement here
+                System.out.println("Volume Bola: " + this.volume);
 		
 	}
 
@@ -106,6 +106,6 @@ public class Bola extends Lingkaran implements IBenda3D {
 	@Override
 	public void mencetakLuasPermukaan() {
 		// TODO implement here
-		
+		System.out.println("LP Bola: " + this.luas_permukaan);
 	}
 }

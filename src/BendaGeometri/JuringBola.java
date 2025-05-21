@@ -12,19 +12,21 @@ public class JuringBola extends Bola implements IBenda3D {
 	 * Default constructor
 	 */
 	public JuringBola() {
+            super();
 	}
 
 	/**
 	 * 
 	 */
-	private double sudut;
+	private double sudut, volume, luas_permukaan;
 
 	/**
 	 * @param radius 
-	 * @param sudut
+	 * @param sudut "dalam radian"
 	 */
 	public JuringBola(double radius, double sudut) {
-		// TODO implement here
+		this.sudut = sudut;
+                super(radius);
 	}
 
 	/**
@@ -32,73 +34,72 @@ public class JuringBola extends Bola implements IBenda3D {
 	 * @param sudut
 	 */
 	public JuringBola(int radius, int sudut) {
-		// TODO implement here
+		this.sudut = sudut;
+                super(radius);
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
+	public double menghitungVolume() {
 		// TODO implement here
-		return 0.0f;
+                this.volume = super.menghitungVolume() * (sudut / (2*Math.PI));
+		return this.volume;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	
+	public double menghitungVolume(double sudut) {
+		return super.menghitungVolume() * (sudut / (2*Math.PI));
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int[] params) {
+	
+	public double menghitungVolume(double sudut, double radius) {
 		// TODO implement here
-		return 0.0d;
+		return super.menghitungVolume(radius) * (sudut / (2*Math.PI));
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungLuasPermukaan() {
+	public double menghitungLuasPermukaan() {
 		// TODO implement here
-		return 0.0f;
-	}
-
-	/**
-	 * @param params 
-	 * @return
-	 */
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
-		// TODO implement here
-		return 0.0d;
+		this.luas_permukaan = super.menghitungLuasPermukaan() * (sudut / (2*Math.PI));
+                return this.luas_permukaan;
 	}
 
 	/**
 	 * @param params 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	
+	public double menghitungLuasPermukaan(double sudut) {
+		return super.menghitungLuasPermukaan() * (sudut / (2*Math.PI));
 	}
 
 	/**
+	 * @param params 
 	 * @return
 	 */
+	
+	public double menghitungLuasPermukaan(double sudut, double radius) {
+		// TODO implement here
+		return super.menghitungLuasPermukaan(radius) * (sudut / (2*Math.PI));
+	}
+
 	@Override
 	public void mencetakVolume() {
 		// TODO implement here
+                System.out.println("Volume Juring Bola: " + this.volume);
 		
 	}
 
@@ -108,7 +109,7 @@ public class JuringBola extends Bola implements IBenda3D {
 	@Override
 	public void mencetakLuasPermukaan() {
 		// TODO implement here
-		
+		System.out.println("LP Juring Bola: " + this.luas_permukaan);
 	}
 
 }
