@@ -1,11 +1,6 @@
 	package BendaGeometri;
 
-	import java.io.*;
-	import java.util.*;
 
-	/**
-	 * 
-	 */
 	public class LimasJajaranGenjang extends JajaranGenjang implements IBenda3D {
 
 		/**

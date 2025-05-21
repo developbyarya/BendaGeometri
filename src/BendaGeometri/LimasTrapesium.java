@@ -1,11 +1,6 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
 
-/**
- * 
- */
 public class LimasTrapesium extends Trapesium implements IBenda3D {
 
 	/**
