@@ -28,7 +28,7 @@ public class PrismaBelahKetupat extends BelahKetupat implements IBenda3D {
     // Calculate the volume of the prism
     @Override
     public double menghitungVolume() {
-        double luasAlas = super.getLuas(); // Area of the rhombus base
+        double luasAlas = super.menghitungLuas(); // Area of the rhombus base
         return luasAlas * tinggi;
     }
 
