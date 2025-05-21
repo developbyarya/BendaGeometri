@@ -32,31 +32,38 @@ public class JuringLingkaran extends Lingkaran {
 
     @Override
     public float menghitungLuas() {
-        return (float) ((sudut / 360.0) * super.menghitungLuas());
+        float luas = (float) ((this.sudut / 360.0) * super.menghitungLuas());
+        return luas;
     }
 
     public double menghitungLuas(double radius, double sudut) {
-        return (sudut / 360.0) * super.menghitungLuas(radius);
+        double luas = (sudut / 360.0) * super.menghitungLuas(radius);
+        return luas;
     }
 
     public double menghitungLuas(int radius, int sudut) {
-        return (sudut / 360.0) * super.menghitungLuas(radius);
+        double luas = (sudut / 360.0) * super.menghitungLuas(radius);
+        return luas;
     }
 
     @Override
     public float menghitungKeliling() {
 		double r = super.getRadius();
         double busur = super.menghitungKeliling() * (sudut / 360.0);
-        return (float) (busur + 2 * r);
+        float keliling = (float) (busur + 2 * r);
+        return keliling;
     }
 
     public double menghitungKeliling(double radius, double sudut) {
         double busur = super.menghitungKeliling(radius) * (sudut / 360.0);
-        return busur + 2 * radius;
+        double keliling = busur + 2 * radius;
+        return keliling;
     }
 
     public double menghitungKeliling(int radius, int sudut) {
-        return menghitungKeliling((double) radius, (double) sudut);
+        double busur = super.menghitungKeliling(radius) * (sudut / 360.0);
+        double keliling = busur + 2 * radius;
+        return keliling;
     }
 
     @Override

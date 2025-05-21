@@ -32,28 +32,34 @@ public class Persegi extends Benda2D {
 
 	@Override
 	public float menghitungLuas() {
-		return (float) (this.sisi * this.sisi);
+		float luas = (float) (this.sisi * this.sisi);
+		return luas;
 	}
 
 	public double menghitungLuas(double sisi) {
-		return sisi * sisi;
+		double luas = sisi * sisi;
+		return luas;
 	}
 
 	public double menghitungLuas(int sisi) {
-		return sisi * sisi;
+		double luas = sisi * sisi;
+		return luas;
 	}
 
 	@Override
 	public float menghitungKeliling() {
-		return (float) (4 * this.sisi);
+		float keliling = (float) (4 * this.sisi);
+		return keliling;
 	}
 
 	public double menghitungKeliling(double sisi) {
-		return sisi * sisi;
+		double keliling = 4 * sisi;
+		return keliling;
 	}
 
 	public double menghitungKeliling(int sisi) {
-		return sisi * sisi;
+		double keliling = 4 * sisi;
+		return keliling;
 	}
 
 	@Override

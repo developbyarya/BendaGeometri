@@ -69,31 +69,33 @@ public class BelahKetupat extends Benda2D {
 
 	@Override
 	public float menghitungLuas() {
-		return (float) ((diagonal1 * diagonal2) / 2);
+		float luas = (float) (this.diagonal1 * this.diagonal2) / 2;
+		return luas;
 	}
 
-
-
-
 	public double menghitungLuas(double diagonal1, double diagonal2) {
-		return (diagonal1 * diagonal2) / 2.0;
+		double luas = (diagonal1 * diagonal2) / 2.0;
+		return luas;
 	}
 
 	public double menghitungLuas(int diagonal1, int diagonal2) {
-		return (diagonal1 * diagonal2) / 2;
+		double luas = (diagonal1 * diagonal2) / 2.0;
+		return luas;
   }
 
 	@Override
 	public float menghitungKeliling() {
-		return (float) (4 * this.sisi);
+		float keliling =(float) (4 * this.sisi);
+		return keliling;
 	}
 
 	public double menghitungKeliling(double sisi) {
-		return 4 * sisi;
+		double keliling = (4 * sisi);
+		return keliling;
 	}
-
 	public double menghitungKeliling(int sisi) {
-		return 4 * sisi;
+		double keliling = (4 * sisi);
+		return keliling;
 	}
 
 	@Override

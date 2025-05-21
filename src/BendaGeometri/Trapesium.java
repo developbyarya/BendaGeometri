@@ -112,29 +112,35 @@ public class Trapesium extends Benda2D {
     }
 
     public double menghitungLuas(double alasAtas, double alasBawah, double tinggi) {
-        return 0.5 * (alasAtas + alasBawah) * tinggi;
+        double luas = 0.5 * (alasAtas + alasBawah) * tinggi;
+        return luas;
     }
 
     public double menghitungLuas(int alasAtas, int alasBawah, int tinggi) {
-        return 0.5 * (alasAtas + alasBawah) * tinggi;
+        double luas = 0.5 * (alasAtas + alasBawah) * tinggi;
+        return luas;
     }
 
     @Override
     public float menghitungLuas() {
-        return (float) (0.5 * (alasAtas + alasBawah) * tinggi);
+        float luas = (float) (0.5 * (this.alasAtas + this.alasBawah) * this.tinggi);
+        return luas;
     }
 
     @Override
     public float menghitungKeliling() {
-        return (float) (alasAtas + alasBawah + sisiKiri + sisiKanan);
+        float keliling = (float) (this.alasAtas + this.alasBawah + this.sisiKiri + this.sisiKanan);
+        return keliling;
     }
 
     public double menghitungKeliling(double alasAtas, double alasBawah, double sisiKanan, double sisiKiri) {
-        return alasAtas + alasBawah + sisiKanan + sisiKiri;
+        double keliling = alasAtas + alasBawah + sisiKanan + sisiKiri;
+        return keliling;
     }
 
     public double menghitungKeliling(int alasAtas, int alasBawah, int sisiKanan, int sisiKiri) {
-        return alasAtas + alasBawah + sisiKanan + sisiKiri;
+        double keliling = alasAtas + alasBawah + sisiKanan + sisiKiri;
+        return keliling;
     }
 
     @Override
