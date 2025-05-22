@@ -106,35 +106,38 @@
 		 * @param params 
 		 * @return
 		 */
+
 	
 		public double menghitungLuasPermukaan(int panjang_alas, int tinggi_alas, int sisi_miring_alas, int tinggi) {
 			double luasAlas =  super.menghitungLuas(panjang_alas, tinggi_alas);
 		
-			
-			// Menghitung luas segitiga pada sisi tegak
-			double luasSegitiga1 = (1/2.0) * panjang_alas * tinggi;
-			double luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
-			double luasSegitiga3 = (1/2.0) * panjang_alas * tinggi;
-			double luasSegitiga4 = (1/2.0) * sisi_miring_alas * tinggi;
-			
-			return luasAlas + luasSegitiga1 + luasSegitiga2 + luasSegitiga3 + luasSegitiga4;
-		}
-
-		/**
-		 * @return
-		 */
-		@Override
-		public void mencetakVolume() {
-			// TODO implement here
-			
-		}
-
-		/**
-		 * @return
-		 */
-		@Override
-		public void mencetakLuasPermukaan() {
-			// TODO implement here
-			
-		}
+		
+		// Menghitung luas segitiga pada sisi tegak
+		double luasSegitiga1 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga2 = (1/2.0) * sisi_miring_alas * tinggi;
+		double luasSegitiga3 = (1/2.0) * luasAlas * tinggi;
+		double luasSegitiga4 = (1/2.0) *  sisi_miring_alas * tinggi;
+		
+		
+		
+		return luasAlas + luasSegitiga1 + luasSegitiga2 + luasSegitiga3 + luasSegitiga4;
 	}
+
+	/**
+	 * @return
+	 */
+	@Override
+	public void mencetakVolume() {
+		// TODO implement here
+		
+	}
+
+	/**
+	 * @return
+	 */
+	@Override
+	public void mencetakLuasPermukaan() {
+		// TODO implement here
+		
+	}
+}

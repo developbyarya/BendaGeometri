@@ -48,7 +48,6 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 		return luasAlas + selimut;
 	}
 
-
 	public double menghitungLuasPermukaan(double tinggi, double radius) {
 		double luasAlas = super.menghitungLuas();
 		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius, 2)); 
