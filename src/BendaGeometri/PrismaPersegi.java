@@ -1,6 +1,4 @@
 package BendaGeometri;
-import java.io.*;
-import java.util.*;
 
 public class PrismaPersegi extends Persegi implements IBenda3D {
     private double tinggiPrisma;
@@ -10,21 +8,23 @@ public class PrismaPersegi extends Persegi implements IBenda3D {
         this.tinggiPrisma = 0;
     }
 
-    public PrismaPersegi(Persegi bendaAlas, double tinggiPrisma) {
-        super(bendaAlas.getSisi());
+    public PrismaPersegi(double sisi, double tinggiPrisma) {
+        super(sisi);
         this.tinggiPrisma = tinggiPrisma;
     }
 
-    public PrismaPersegi(Persegi bendaAlas, int tinggiPrisma) {
-        this(bendaAlas, (double) tinggiPrisma);
+    public PrismaPersegi(int sisi, int tinggiPrisma) {
+        super(sisi);
+        this.tinggiPrisma = tinggiPrisma;
     }
 
     @Override
     public double menghitungVolume() {
-        return super.menghitungLuas() * tinggiPrisma;
+        double luasAlas = menghitungLuas();
+        return luasAlas * tinggiPrisma;
     }
 
-    
+
     public double menghitungVolume(double sisi, double tinggi) {
        
         double luasAlas = super.menghitungLuas(sisi);
@@ -36,12 +36,16 @@ public class PrismaPersegi extends Persegi implements IBenda3D {
     public double menghitungVolume(int sisi, int tinggi) {
        double luasAlas = super.menghitungLuas(sisi);
         return luasAlas * tinggi;
+
     }
 
     @Override
     public double menghitungLuasPermukaan() {
-        return 2 * super.menghitungLuas() + super.menghitungKeliling() * tinggiPrisma;
+        double luasAlas = menghitungLuas();
+        double kelilingAlas = menghitungKeliling();
+        return 2 * luasAlas * kelilingAlas * tinggiPrisma;
     }
+
 
     
     public double menghitungLuasPermukaan(double sisi, double tinggi) {

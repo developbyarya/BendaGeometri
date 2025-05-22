@@ -13,6 +13,7 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 */
 	public LimasBelahKetupat() {
             super();
+			this.tinggi = 0;
 	}
 
 	/**
@@ -29,7 +30,6 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 * @param tinggi
 	 */
 	public LimasBelahKetupat(double d1, double d2, double sisi, double tinggi) {
-		// TODO implement here
                 super(d1, d2, sisi);
 		this.tinggi = tinggi;
 	}
@@ -42,7 +42,7 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	@Override
 	public double menghitungVolume() {
 		// Example implementation: Assuming tinggi and base area are already set
-		super.menghitungLuas(); // Assuming BelahKetupat has a getLuas() method
+		super.menghitungLuas();
 		return (1.0 / 3.0) * super.menghitungLuas() * tinggi;
 	}
         
@@ -67,14 +67,14 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	@Override
 	public double menghitungLuasPermukaan() {
 		// Example implementation: Assuming base area and lateral area are calculated
-		double baseArea = super.getLuas(); // Assuming BelahKetupat has a getLuas() method
+		double baseArea = super.menghitungLuas();
 		double lateralArea = calculateLateralArea(); // Custom method to calculate lateral area
 		return baseArea + lateralArea;
 	}
 
 	public double menghitungLuasPermukaan(double diagonal1, double diagonal2, double tinggi, double sisi) {
 		// Example implementation: Assuming params[0] is base area and params[1] is lateral area
-		double baseArea = super.menghitungLuas(diagonal1, diagonal2); // Assuming BelahKetupat has a getLuas() method
+		double baseArea = super.menghitungLuas(diagonal1, diagonal2);
 		double lateralArea = calculateLateralArea(diagonal1, diagonal2, sisi); // Custom method to calculate lateral area
 		return baseArea + lateralArea;
 	}
@@ -91,7 +91,6 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	// Implementing mencetakVolume method
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
 		System.out.println("Volume: " + menghitungVolume());
 	}
 
