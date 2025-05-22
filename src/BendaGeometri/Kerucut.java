@@ -75,7 +75,7 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	@Override
 	public double menghitungLuasPermukaan() {
 		double luasAlas = super.menghitungLuas();
-		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(super.getRadius())); 
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(super.getRadius(), 2)); 
 		double selimut = Math.PI * super.getRadius() * sisiMiring;
 		return luasAlas + sisiMiring;
 	}
@@ -83,10 +83,10 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	/**
 	 * @return
 	 */
-	@Override
+	
 	public double menghitungLuasPermukaan(double tinggi, double radius) {
 		double luasAlas = super.menghitungLuas();
-		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius)); 
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius, 2)); 
 		double selimut = Math.PI * radius * sisiMiring;
 		return luasAlas + sisiMiring;
 	}
@@ -95,10 +95,10 @@ public class Kerucut extends Lingkaran implements IBenda3D {
 	 * @param params 
 	 * @return
 	 */
-	@Override
+
 	public double menghitungLuasPermukaan(int tinggi, int radius) {
 		double luasAlas = super.menghitungLuas();
-		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius)); 
+		double sisiMiring = Math.sqrt(Math.pow(tinggi, 2) + Math.pow(radius, 2)); 
 		double selimut = Math.PI * radius * sisiMiring;
 		return luasAlas + sisiMiring;
 	}

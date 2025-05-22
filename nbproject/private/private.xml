@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/Bola.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/Lingkaran.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/IBenda3D.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/CincinBola.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/JuringBola.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/Kerucut.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/KerucutTerpancung.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/LimasJajaranGenjang.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/PrismaPersegi.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/PrismaPersegiPanjang.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/AplikasiGeometri.java</file>
         </group>
     </open-files>
 </project-private>
