@@ -45,8 +45,8 @@ public class PrismaBelahKetupat extends BelahKetupat implements IBenda3D {
     // Calculate the surface area of the prism
     @Override
     public double menghitungLuasPermukaan() {
-        double luasAlas = this.getLuas(); // Area of the rhombus base
-        double kelilingAlas = this.getKeliling(); 
+        double luasAlas = this.menghitungLuas(); // Area of the rhombus base
+        double kelilingAlas = this.menghitungKeliling(); 
         return (2 * luasAlas) + (kelilingAlas * tinggi);
     }
 
