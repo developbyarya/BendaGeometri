@@ -30,7 +30,6 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	 * @param tinggi
 	 */
 	public LimasBelahKetupat(double d1, double d2, double sisi, double tinggi) {
-		// TODO implement here
                 super(d1, d2, sisi);
 		this.tinggi = tinggi;
 	}
@@ -92,7 +91,6 @@ public class LimasBelahKetupat extends BelahKetupat implements IBenda3D {
 	// Implementing mencetakVolume method
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
 		System.out.println("Volume: " + menghitungVolume());
 	}
 
