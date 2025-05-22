@@ -32,6 +32,7 @@ public class PrismaTrapesium extends Trapesium implements IBenda3D {
     public double menghitungVolume(int alasAtas, int alasBawah, int tinggi, int tinggiPrisma) {
         double luasAlas = super.menghitungLuas(alasAtas,alasBawah,tinggi);
         return luasAlas * tinggiPrisma;
+
     }
 
 
@@ -41,6 +42,7 @@ public class PrismaTrapesium extends Trapesium implements IBenda3D {
         double kelilingAlas = super.menghitungKeliling();
         return 2 * luasAlas + kelilingAlas * tinggiPrisma;
     }
+
 
     public double menghitungLuasPermukaan(double alasAtas, double alasBawah,double tinggi, double sisiKiri, double sisiKanan, double tinggiPrisma) {
         double luasAlas = super.menghitungLuas(alasAtas,alasBawah,tinggi);

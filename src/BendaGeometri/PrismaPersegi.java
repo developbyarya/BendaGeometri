@@ -24,14 +24,19 @@ public class PrismaPersegi extends Persegi implements IBenda3D {
         return luasAlas * tinggiPrisma;
     }
 
-    public double menghitungVolume(double sisi, double tinggiPrisma) {
+
+    public double menghitungVolume(double sisi, double tinggi) {
+       
         double luasAlas = super.menghitungLuas(sisi);
-        return luasAlas * tinggiPrisma;
+        return luasAlas * tinggi;
+        
     }
 
-    public double menghitungVolume(int sisi, int tinggiPrisma) {
-        double luasAlas = super.menghitungLuas(sisi);
-        return luasAlas * tinggiPrisma;
+   
+    public double menghitungVolume(int sisi, int tinggi) {
+       double luasAlas = super.menghitungLuas(sisi);
+        return luasAlas * tinggi;
+
     }
 
     @Override
@@ -41,16 +46,21 @@ public class PrismaPersegi extends Persegi implements IBenda3D {
         return 2 * luasAlas * kelilingAlas * tinggiPrisma;
     }
 
-    public double menghitungLuasPermukaan(double sisi, double tinggiPrisma) {
-        double luasAlas = menghitungLuas(sisi);
-        double kelilingAlas = menghitungKeliling(tinggiPrisma);
-        return 2 * luasAlas * kelilingAlas * tinggiPrisma;    
+
+    
+    public double menghitungLuasPermukaan(double sisi, double tinggi) {
+        
+        double luasAlas = super.menghitungLuas(sisi);
+        double kelilingAlas = super.menghitungKeliling(sisi);
+        return 2 * luasAlas + kelilingAlas * tinggi;
+       
     }
 
-    public double menghitungLuasPermukaan(int sisi, int tinggiPrisma) {
-        double luasAlas = menghitungLuas(sisi);
-        double kelilingAlas = menghitungKeliling(tinggiPrisma);
-        return 2 * luasAlas * kelilingAlas * tinggiPrisma;    
+   
+    public double menghitungLuasPermukaan(int sisi, int tinggi) {
+         double luasAlas = super.menghitungLuas(sisi);
+        double kelilingAlas = super.menghitungKeliling(sisi);
+        return 2 * luasAlas + kelilingAlas * tinggi;
     }
 
     @Override

@@ -24,14 +24,21 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return luasAlas * tinggiPrisma;
     }
 
-    public double menghitungVolume(double panjang, double lebar, double tinggiPrisma) {
-        double luasAlas = super.menghitungLuas();
-        return luasAlas * tinggiPrisma;
+   
+    public double menghitungVolume(double[] params) {
+        if (params.length >= 1) {
+            return super.menghitungLuas() * params[0];
+        }
+        return 0.0;
     }
 
-    public double menghitungVolume(int panjang, int lebar, int tinggiPrisma) {
-        double luasAlas = super.menghitungLuas();
-        return luasAlas * tinggiPrisma;
+    
+    public double menghitungVolume(int[] params) {
+        if (params.length >= 1) {
+            return menghitungVolume(new double[] { params[0] });
+        }
+        return 0.0;
+
     }
 
     @Override
@@ -41,15 +48,21 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return 2 * luasAlas + kelilingAlas * tinggiPrisma;
     }
 
-    public double menghitungLuasPermukaan(double panjang, double lebar, double tinggiPrisma) {
-        double luasAlas = super.menghitungLuas(panjang, lebar);
-        double kelilingAlas = super.menghitungKeliling(panjang, lebar);
-        return 2 * luasAlas + kelilingAlas * tinggiPrisma;
+
+   
+    public double menghitungLuasPermukaan(double[] params) {
+        if (params.length >= 1) {
+            return 2 * super.menghitungLuas() + super.menghitungKeliling() * params[0];
+        }
+        return 0.0;
     }
-    public double menghitungLuasPermukaan(int panjang, int lebar, int tinggiPrisma) {
-        double luasAlas = super.menghitungLuas(panjang, lebar);
-        double kelilingAlas = super.menghitungKeliling(panjang, lebar);
-        return 2 * luasAlas + kelilingAlas * tinggiPrisma;
+
+    
+    public double menghitungLuasPermukaan(int[] params) {
+        if (params.length >= 1) {
+            return menghitungLuasPermukaan(new double[] { params[0] });
+        }
+        return 0.0;
     }
 
     @Override

@@ -12,19 +12,21 @@ public class TemberengBola extends Bola implements IBenda3D {
 	 * Default constructor
 	 */
 	public TemberengBola() {
+		super();
 	}
 
 	/**
 	 * 
 	 */
-	private double tinggi;
+	private double tinggi, volume, luas_permukaan;
 
 	/**
 	 * @param radius 
 	 * @param tinggi
 	 */
 	public TemberengBola(double radius, double tinggi) {
-		// TODO implement here
+		super(radius);
+		this.tinggi = tinggi;
 	}
 
 	/**
@@ -32,65 +34,92 @@ public class TemberengBola extends Bola implements IBenda3D {
 	 * @param tinggi
 	 */
 	public TemberengBola(int radius, int tinggi) {
-		// TODO implement here
+		super(radius);
+		this.tinggi = tinggi;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungVolume() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungVolume() {
+		// Formula for volume of spherical segment:
+		// V = (1/3) * π * h² * (3r - h)
+		// where h is height of segment, r is radius of sphere
+		double r = super.getRadius();
+		this.volume = (Math.PI * tinggi * tinggi * (3 * r - tinggi)) / 3.0;
+		return this.volume;
 	}
 
 	/**
-	 * @param params 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double tinggi) {
+		double r = super.getRadius();
+		return (Math.PI * tinggi * tinggi * (3 * r - tinggi)) / 3.0;
 	}
 
 	/**
-	 * @param params 
+	 * @param radius 
+	 * @param tinggi
 	 * @return
 	 */
-	@Override
-	public double menghitungVolume(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungVolume(double radius, double tinggi) {
+		return (Math.PI * tinggi * tinggi * (3 * radius - tinggi)) / 3.0;
+	}
+
+	/**
+	 * @param radius 
+	 * @param tinggi
+	 * @return
+	 */
+	public double menghitungVolume(int radius, int tinggi) {
+		return (Math.PI * tinggi * tinggi * (3 * radius - tinggi)) / 3.0;
 	}
 
 	/**
 	 * @return
 	 */
 	@Override
-	public float menghitungLuasPermukaan() {
-		// TODO implement here
-		return 0.0f;
+	public double menghitungLuasPermukaan() {
+		// Formula for surface area of spherical segment:
+		// A = 2πrh (curved part) + π(r²-a²) (circular base)
+		// where a² = r² - h²
+		double r = super.getRadius();
+		double a = Math.sqrt(r * r - (r - tinggi) * (r - tinggi));
+		this.luas_permukaan = 2 * Math.PI * r * tinggi + Math.PI * a * a;
+		return this.luas_permukaan;
 	}
 
 	/**
-	 * @param params 
+	 * @param tinggi 
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(double[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(double tinggi) {
+		double r = super.getRadius();
+		double a = Math.sqrt(r * r - (r - tinggi) * (r - tinggi));
+		return 2 * Math.PI * r * tinggi + Math.PI * a * a;
 	}
 
 	/**
-	 * @param params 
+	 * @param radius 
+	 * @param tinggi
 	 * @return
 	 */
-	@Override
-	public double menghitungLuasPermukaan(int[] params) {
-		// TODO implement here
-		return 0.0d;
+	public double menghitungLuasPermukaan(double radius, double tinggi) {
+		double a = Math.sqrt(radius * radius - (radius - tinggi) * (radius - tinggi));
+		return 2 * Math.PI * radius * tinggi + Math.PI * a * a;
+	}
+
+	/**
+	 * @param radius 
+	 * @param tinggi
+	 * @return
+	 */
+	public double menghitungLuasPermukaan(int radius, int tinggi) {
+		double a = Math.sqrt(radius * radius - (radius - tinggi) * (radius - tinggi));
+		return 2 * Math.PI * radius * tinggi + Math.PI * a * a;
 	}
 
 	/**
@@ -98,8 +127,7 @@ public class TemberengBola extends Bola implements IBenda3D {
 	 */
 	@Override
 	public void mencetakVolume() {
-		// TODO implement here
-		
+		System.out.println("Volume Tembereng Bola: " + this.volume);
 	}
 
 	/**
@@ -107,8 +135,6 @@ public class TemberengBola extends Bola implements IBenda3D {
 	 */
 	@Override
 	public void mencetakLuasPermukaan() {
-		// TODO implement here
-		
+		System.out.println("LP Tembereng Bola: " + this.luas_permukaan);
 	}
-
 }

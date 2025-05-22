@@ -4,11 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/Kerucut.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/KerucutTerpancung.java</file>
             <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/LimasJajaranGenjang.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/PrismaPersegi.java</file>
-            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/PrismaPersegiPanjang.java</file>
             <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/AplikasiGeometri.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/PrismaSegitiga.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/TemberengBola.java</file>
+            <file>file:/home/developbyarya/NetBeansProjects/BendaGeometri/src/BendaGeometri/KerucutTerpancung.java</file>
         </group>
     </open-files>
 </project-private>
