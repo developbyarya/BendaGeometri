@@ -1,7 +1,4 @@
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.*;
+import java.util.Scanner;
 import BendaGeometri.*;
 
 /**
@@ -9,235 +6,315 @@ import BendaGeometri.*;
  */
 public class AplikasiGeometri {
 
-	private JFrame mainFrame;
-	private JPanel benda2DPanel;
-	private JPanel benda3DPanel;
+	private Scanner scanner;
+	private boolean running;
 
 	/**
 	 * Default constructor
 	 */
 	public AplikasiGeometri() {
-		initializeUI();
+		scanner = new Scanner(System.in);
+		running = true;
+		run();
 	}
 
 	/**
-	 * Initialize the user interface
+	 * Run the application
 	 */
-	private void initializeUI() {
-		// Create main frame
-		mainFrame = new JFrame("Aplikasi Geometri");
-		mainFrame.setSize(800, 600);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setLayout(new BorderLayout());
-
-		// Create main panel with scroll capability
-		JPanel mainPanel = new JPanel();
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-		
-		// Create 2D shapes section
-		JLabel benda2DLabel = new JLabel("Benda 2D");
-		benda2DLabel.setFont(new Font("Arial", Font.BOLD, 20));
-		benda2DLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		mainPanel.add(benda2DLabel);
-		mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		
-		// Create 2D shapes panel
-		benda2DPanel = new JPanel();
-		benda2DPanel.setLayout(new GridLayout(0, 3, 10, 10));
-		
-		// Add buttons for 2D shapes
-		addBenda2DButtons();
-		
-		mainPanel.add(benda2DPanel);
-		mainPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-		
-		// Create 3D shapes section
-		JLabel benda3DLabel = new JLabel("Benda 3D");
-		benda3DLabel.setFont(new Font("Arial", Font.BOLD, 20));
-		benda3DLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		mainPanel.add(benda3DLabel);
-		mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		
-		// Create 3D shapes panel
-		benda3DPanel = new JPanel();
-		benda3DPanel.setLayout(new GridLayout(0, 3, 10, 10));
-		
-		// Add buttons for 3D shapes
-		addBenda3DButtons();
-		
-		mainPanel.add(benda3DPanel);
-		
-		// Add scroll pane
-		JScrollPane scrollPane = new JScrollPane(mainPanel);
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		mainFrame.add(scrollPane, BorderLayout.CENTER);
-		
-		// Display the frame
-		mainFrame.setLocationRelativeTo(null);
-		mainFrame.setVisible(true);
+	private void run() {
+		while (running) {
+			displayMainMenu();
+			int choice = getMenuChoice();
+			
+			switch (choice) {
+				case 1:
+					displayBenda2DMenu();
+					break;
+				case 2:
+					displayBenda3DMenu();
+					break;
+				case 0:
+					running = false;
+					System.out.println("Terima kasih telah menggunakan Aplikasi Geometri!");
+					break;
+				default:
+					System.out.println("Pilihan tidak valid, silakan coba lagi.");
+			}
+		}
+		scanner.close();
 	}
 	
 	/**
-	 * Add buttons for 2D shapes
+	 * Display the main menu
 	 */
-	private void addBenda2DButtons() {
-		// Create buttons for each 2D shape
-		String[] benda2DNames = {
-			"Segitiga", "Persegi", "Persegi Panjang", "Jajaran Genjang", 
-			"Trapesium", "Belah Ketupat", "Layang-Layang", "Lingkaran", 
-			"Tembereng Lingkaran", "Juring Lingkaran"
-		};
+	private void displayMainMenu() {
+		System.out.println("\n===== APLIKASI GEOMETRI =====");
+		System.out.println("1. Benda 2D");
+		System.out.println("2. Benda 3D");
+		System.out.println("0. Keluar");
+		System.out.print("Pilihan anda: ");
+	}
+	
+	/**
+	 * Display the 2D shapes menu
+	 */
+	private void displayBenda2DMenu() {
+		boolean inSubmenu = true;
 		
-		for (String name : benda2DNames) {
-			JButton button = new JButton(name);
-			button.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					openBenda2DWindow(name);
-				}
-			});
-			benda2DPanel.add(button);
+		while (inSubmenu) {
+			System.out.println("\n===== BENDA 2D =====");
+			System.out.println("1. Segitiga");
+			System.out.println("2. Persegi");
+			System.out.println("3. Persegi Panjang");
+			System.out.println("4. Jajaran Genjang");
+			System.out.println("5. Trapesium");
+			System.out.println("6. Belah Ketupat");
+			System.out.println("7. Layang-Layang");
+			System.out.println("8. Lingkaran");
+			System.out.println("9. Tembereng Lingkaran");
+			System.out.println("10. Juring Lingkaran");
+			System.out.println("0. Kembali ke Menu Utama");
+			System.out.print("Pilihan anda: ");
+			
+			int choice = getMenuChoice();
+			
+			if (choice == 0) {
+				inSubmenu = false;
+			} else {
+				processBenda2DChoice(choice);
+			}
 		}
 	}
 	
 	/**
-	 * Add buttons for 3D shapes
+	 * Display the 3D shapes menu
 	 */
-	private void addBenda3DButtons() {
-		// Create buttons for each 3D shape
-		String[] benda3DNames = {
-			"Prisma Segitiga", "Limas Segitiga", "Prisma Persegi", "Limas Persegi",
-			"Prisma Persegi Panjang", "Limas Persegi Panjang", "Prisma Jajaran Genjang",
-			"Limas Jajaran Genjang", "Prisma Trapesium", "Limas Trapesium",
-			"Prisma Belah Ketupat", "Limas Belah Ketupat", "Prisma Layang-Layang",
-			"Limas Layang-Layang", "Tabung", "Kerucut", "Kerucut Terpancung",
-			"Bola", "Tembereng Bola", "Juring Bola", "Cincin Bola"
-		};
+	private void displayBenda3DMenu() {
+		boolean inSubmenu = true;
 		
-		for (String name : benda3DNames) {
-			JButton button = new JButton(name);
-			button.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					openBenda3DWindow(name);
-				}
-			});
-			benda3DPanel.add(button);
+		while (inSubmenu) {
+			System.out.println("\n===== BENDA 3D =====");
+			System.out.println("1. Prisma Segitiga");
+			System.out.println("2. Limas Segitiga");
+			System.out.println("3. Prisma Persegi");
+			System.out.println("4. Limas Persegi");
+			System.out.println("5. Prisma Persegi Panjang");
+			System.out.println("6. Limas Persegi Panjang");
+			System.out.println("7. Prisma Jajaran Genjang");
+			System.out.println("8. Limas Jajaran Genjang");
+			System.out.println("9. Prisma Trapesium");
+			System.out.println("10. Limas Trapesium");
+			System.out.println("11. Prisma Belah Ketupat");
+			System.out.println("12. Limas Belah Ketupat");
+			System.out.println("13. Prisma Layang-Layang");
+			System.out.println("14. Limas Layang-Layang");
+			System.out.println("15. Tabung");
+			System.out.println("16. Kerucut");
+			System.out.println("17. Kerucut Terpancung");
+			System.out.println("18. Bola");
+			System.out.println("19. Tembereng Bola");
+			System.out.println("20. Juring Bola");
+			System.out.println("21. Cincin Bola");
+			System.out.println("0. Kembali ke Menu Utama");
+			System.out.print("Pilihan anda: ");
+			
+			int choice = getMenuChoice();
+			
+			if (choice == 0) {
+				inSubmenu = false;
+			} else {
+				processBenda3DChoice(choice);
+			}
 		}
 	}
 	
 	/**
-	 * Open a window for a 2D shape
-	 * @param shapeName The name of the shape
+	 * Get the user's menu choice
+	 * @return The menu choice as an integer
 	 */
-	private void openBenda2DWindow(String shapeName) {
-		switch (shapeName) {
-			case "Segitiga":
-				new SegitigaWindow();
+	private int getMenuChoice() {
+		try {
+			return Integer.parseInt(scanner.nextLine());
+		} catch (NumberFormatException e) {
+			return -1; // Invalid choice
+		}
+	}
+	
+	/**
+	 * Process the 2D shape choice
+	 * @param choice The menu choice
+	 */
+	private void processBenda2DChoice(int choice) {
+		switch (choice) {
+			case 1:
+				handleSegitiga();
 				break;
-			case "Persegi":
-				new PersegiWindow();
+			case 2:
+				handlePersegi();
 				break;
-//			case "Persegi Panjang":
-//				new PersegiPanjangWindow();
-//				break;
-//			case "Jajaran Genjang":
-//				new JajaranGenjangWindow();
-//				break;
-//			case "Trapesium":
-//				new TrapesiumWindow();
-//				break;
-//			case "Belah Ketupat":
-//				new BelahKetupatWindow();
-//				break;
-//			case "Layang-Layang":
-//				new LayangLayangWindow();
-//				break;
-//			case "Lingkaran":
-//				new LingkaranWindow();
-//				break;
-//			case "Tembereng Lingkaran":
-//				new TemberengLingkaranWindow();
-//				break;
-//			case "Juring Lingkaran":
-//				new JuringLingkaranWindow();
-//				break;
+			case 3:
+				System.out.println("Persegi Panjang belum diimplementasikan!");
+				break;
+			case 4:
+				System.out.println("Jajaran Genjang belum diimplementasikan!");
+				break;
+			case 5:
+				System.out.println("Trapesium belum diimplementasikan!");
+				break;
+			case 6:
+				System.out.println("Belah Ketupat belum diimplementasikan!");
+				break;
+			case 7:
+				System.out.println("Layang-Layang belum diimplementasikan!");
+				break;
+			case 8:
+				System.out.println("Lingkaran belum diimplementasikan!");
+				break;
+			case 9:
+				System.out.println("Tembereng Lingkaran belum diimplementasikan!");
+				break;
+			case 10:
+				System.out.println("Juring Lingkaran belum diimplementasikan!");
+				break;
 			default:
-				JOptionPane.showMessageDialog(mainFrame, "Shape not implemented yet!");
+				System.out.println("Pilihan tidak valid, silakan coba lagi.");
+		}
+		
+		// Wait for user to press Enter before returning to menu
+		System.out.println("\nTekan Enter untuk melanjutkan...");
+		scanner.nextLine();
+	}
+	
+	/**
+	 * Process the 3D shape choice
+	 * @param choice The menu choice
+	 */
+	private void processBenda3DChoice(int choice) {
+		switch (choice) {
+			case 1:
+				System.out.println("Prisma Segitiga belum diimplementasikan!");
+				break;
+			case 2:
+				System.out.println("Limas Segitiga belum diimplementasikan!");
+				break;
+			case 3:
+				System.out.println("Prisma Persegi belum diimplementasikan!");
+				break;
+			case 4:
+				System.out.println("Limas Persegi belum diimplementasikan!");
+				break;
+			case 5:
+				System.out.println("Prisma Persegi Panjang belum diimplementasikan!");
+				break;
+			case 6:
+				System.out.println("Limas Persegi Panjang belum diimplementasikan!");
+				break;
+			case 7:
+				System.out.println("Prisma Jajaran Genjang belum diimplementasikan!");
+				break;
+			case 8:
+				System.out.println("Limas Jajaran Genjang belum diimplementasikan!");
+				break;
+			case 9:
+				System.out.println("Prisma Trapesium belum diimplementasikan!");
+				break;
+			case 10:
+				System.out.println("Limas Trapesium belum diimplementasikan!");
+				break;
+			case 11:
+				System.out.println("Prisma Belah Ketupat belum diimplementasikan!");
+				break;
+			case 12:
+				System.out.println("Limas Belah Ketupat belum diimplementasikan!");
+				break;
+			case 13:
+				System.out.println("Prisma Layang-Layang belum diimplementasikan!");
+				break;
+			case 14:
+				System.out.println("Limas Layang-Layang belum diimplementasikan!");
+				break;
+			case 15:
+				System.out.println("Tabung belum diimplementasikan!");
+				break;
+			case 16:
+				System.out.println("Kerucut belum diimplementasikan!");
+				break;
+			case 17:
+				System.out.println("Kerucut Terpancung belum diimplementasikan!");
+				break;
+			case 18:
+				System.out.println("Bola belum diimplementasikan!");
+				break;
+			case 19:
+				System.out.println("Tembereng Bola belum diimplementasikan!");
+				break;
+			case 20:
+				System.out.println("Juring Bola belum diimplementasikan!");
+				break;
+			case 21:
+				System.out.println("Cincin Bola belum diimplementasikan!");
+				break;
+			default:
+				System.out.println("Pilihan tidak valid, silakan coba lagi.");
+		}
+		
+		// Wait for user to press Enter before returning to menu
+		System.out.println("\nTekan Enter untuk melanjutkan...");
+		scanner.nextLine();
+	}
+	
+	/**
+	 * Handle Segitiga calculations
+	 */
+	private void handleSegitiga() {
+		System.out.println("\n===== SEGITIGA =====");
+		
+		try {
+			System.out.print("Masukkan panjang sisi a: ");
+			double sisiA = Double.parseDouble(scanner.nextLine());
+			
+			System.out.print("Masukkan panjang sisi b: ");
+			double sisiB = Double.parseDouble(scanner.nextLine());
+			
+			System.out.print("Masukkan panjang sisi c: ");
+			double sisiC = Double.parseDouble(scanner.nextLine());
+			
+			System.out.print("Masukkan tinggi: ");
+			double tinggi = Double.parseDouble(scanner.nextLine());
+			
+			// Calculate area and perimeter
+			double keliling = sisiA + sisiB + sisiC;
+			double luas = 0.5 * sisiA * tinggi;
+			
+			System.out.println("\nHasil Perhitungan:");
+			System.out.println("Keliling Segitiga: " + keliling);
+			System.out.println("Luas Segitiga: " + luas);
+			
+		} catch (NumberFormatException e) {
+			System.out.println("Input tidak valid! Masukkan angka yang benar.");
 		}
 	}
 	
 	/**
-	 * Open a window for a 3D shape
-	 * @param shapeName The name of the shape
+	 * Handle Persegi calculations
 	 */
-	private void openBenda3DWindow(String shapeName) {
-		switch (shapeName) {
-//			case "Prisma Segitiga":
-//				new PrismaSegitigaWindow();
-//				break;
-//			case "Limas Segitiga":
-//				new LimasSegitigaWindow();
-//				break;
-//			case "Prisma Persegi":
-//				new PrismaPersegiWindow();
-//				break;
-//			case "Limas Persegi":
-//				new LimasPersegiWindow();
-//				break;
-//			case "Prisma Persegi Panjang":
-//				new PrismaPersegiPanjangWindow();
-//				break;
-//			case "Limas Persegi Panjang":
-//				new LimasPersegiPanjangWindow();
-//				break;
-//			case "Prisma Jajaran Genjang":
-//				new PrismaJajaranGenjangWindow();
-//				break;
-//			case "Limas Jajaran Genjang":
-//				new LimasJajaranGenjangWindow();
-//				break;
-//			case "Prisma Trapesium":
-//				new PrismaTrapesiumWindow();
-//				break;
-//			case "Limas Trapesium":
-//				new LimasTrapesiumWindow();
-//				break;
-//			case "Prisma Belah Ketupat":
-//				new PrismaBelahKetupatWindow();
-//				break;
-//			case "Limas Belah Ketupat":
-//				new LimasBelahKetupatWindow();
-//				break;
-//			case "Prisma Layang-Layang":
-//				new PrismaLayangLayangWindow();
-//				break;
-//			case "Limas Layang-Layang":
-//				new LimasLayangLayangWindow();
-//				break;
-//			case "Tabung":
-//				new TabungWindow();
-//				break;
-//			case "Kerucut":
-//				new KerucutWindow();
-//				break;
-//			case "Kerucut Terpancung":
-//				new KerucutTerpancungWindow();
-//				break;
-//			case "Bola":
-//				new BolaWindow();
-//				break;
-//			case "Tembereng Bola":
-//				new TemberengBolaWindow();
-//				break;
-//			case "Juring Bola":
-//				new JuringBolaWindow();
-//				break;
-//			case "Cincin Bola":
-//				new CincinBolaWindow();
-//				break;
-			default:
-				JOptionPane.showMessageDialog(mainFrame, "Shape not implemented yet!");
+	private void handlePersegi() {
+		System.out.println("\n===== PERSEGI =====");
+		
+		try {
+			System.out.print("Masukkan panjang sisi: ");
+			double sisi = Double.parseDouble(scanner.nextLine());
+			
+			// Calculate area and perimeter
+			double keliling = 4 * sisi;
+			double luas = sisi * sisi;
+			
+			System.out.println("\nHasil Perhitungan:");
+			System.out.println("Keliling Persegi: " + keliling);
+			System.out.println("Luas Persegi: " + luas);
+			
+		} catch (NumberFormatException e) {
+			System.out.println("Input tidak valid! Masukkan angka yang benar.");
 		}
 	}
 
@@ -246,18 +323,6 @@ public class AplikasiGeometri {
 	 * @param args Command line arguments
 	 */
 	public static void main(String args[]) {
-		// Set look and feel to system default
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		// Create application
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new AplikasiGeometri();
-			}
-		});
+		new AplikasiGeometri();
 	}
 }

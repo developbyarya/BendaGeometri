@@ -25,7 +25,7 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return super.menghitungLuas() * tinggiPrisma;
     }
 
-    @Override
+   
     public double menghitungVolume(double[] params) {
         if (params.length >= 1) {
             return super.menghitungLuas() * params[0];
@@ -33,7 +33,7 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return 0.0;
     }
 
-    @Override
+    
     public double menghitungVolume(int[] params) {
         if (params.length >= 1) {
             return menghitungVolume(new double[] { params[0] });
@@ -46,7 +46,7 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return 2 * super.menghitungLuas() + super.menghitungKeliling() * tinggiPrisma;
     }
 
-    @Override
+   
     public double menghitungLuasPermukaan(double[] params) {
         if (params.length >= 1) {
             return 2 * super.menghitungLuas() + super.menghitungKeliling() * params[0];
@@ -54,7 +54,7 @@ public class PrismaPersegiPanjang extends PersegiPanjang implements IBenda3D {
         return 0.0;
     }
 
-    @Override
+    
     public double menghitungLuasPermukaan(int[] params) {
         if (params.length >= 1) {
             return menghitungLuasPermukaan(new double[] { params[0] });
