@@ -1,8 +1,5 @@
 package BendaGeometri;
 
-import java.io.*;
-import java.util.*;
-
 public class PrismaSegitiga extends Segitiga implements IBenda3D {
     private double tinggiPrisma;
 
@@ -11,60 +8,49 @@ public class PrismaSegitiga extends Segitiga implements IBenda3D {
         this.tinggiPrisma = 0;
     }
 
-    public PrismaSegitiga(Segitiga bendaAlas, double tinggiPrisma) {
-        super(
-            bendaAlas.getAlas(), 
-            bendaAlas.getTinggiSegitiga(), 
-            bendaAlas.getSisiMiring1(), 
-            bendaAlas.getSisiMiring2()
-        );
+    public PrismaSegitiga(double alas,double tinggi,double sisiMiring1, double sisiMiring2, double tinggiPrisma) {
+        super(alas, tinggiPrisma, sisiMiring1, sisiMiring2);
         this.tinggiPrisma = tinggiPrisma;
     }
 
-    public PrismaSegitiga(Segitiga bendaAlas, int tinggiPrisma) {
-        this(bendaAlas, (double) tinggiPrisma);
+    public PrismaSegitiga(int alas, int tinggi, int sisiMiring1, int sisiMiring2, int tinggiPrisma) {
+        super(alas, tinggiPrisma, sisiMiring1, sisiMiring2);
+        this.tinggiPrisma = tinggiPrisma;
     }
 
     @Override
     public double menghitungVolume() {
-        return super.menghitungLuas() * tinggiPrisma; 
+        double luasAlas = super.menghitungLuas();
+        return luasAlas * tinggiPrisma; 
     }
 
-    @Override
-    public double menghitungVolume(double[] params) {
-        if (params.length >= 1) {
-            return super.menghitungLuas() * params[0];
-        }
-        return 0.0;
+    public double menghitungVolume(double alas, double tinggi, double tinggiPrisma) {
+        double luasAlas = super.menghitungLuas(alas, tinggi);
+        return luasAlas * tinggiPrisma;
     }
 
-    @Override
-    public double menghitungVolume(int[] params) {
-        if (params.length >= 1) {
-            return menghitungVolume(new double[] { params[0] });
-        }
-        return 0.0;
+    public double menghitungVolume(int alas, int tinggi, int tinggiPrisma) {
+        double luasAlas = super.menghitungLuas(alas, tinggi);
+        return luasAlas * tinggiPrisma;
     }
 
     @Override
     public double menghitungLuasPermukaan() {
-        return 2 * super.menghitungLuas() + super.menghitungKeliling() * tinggiPrisma;
+        double luasAlas = super.menghitungLuas();
+        double kelilingAlas = super.menghitungKeliling();
+        return 2 * luasAlas + kelilingAlas * tinggiPrisma;
     }
 
-    @Override
-    public double menghitungLuasPermukaan(double[] params) {
-        if (params.length >= 1) {
-            return 2 * super.menghitungLuas() + super.menghitungKeliling() * params[0];
-        }
-        return 0.0;
+    public double menghitungLuasPermukaan(double alas, double tinggi, double sisiMiring1, double sisiMiring2, double tinggiPrisma) {
+       double luasAlas = super.menghitungLuas(alas, tinggi);
+       double kelilingAlas = super.menghitungKeliling(alas, sisiMiring1, sisiMiring1);
+       return 2 * luasAlas + kelilingAlas * tinggiPrisma;
     }
 
-    @Override
-    public double menghitungLuasPermukaan(int[] params) {
-        if (params.length >= 1) {
-            return menghitungLuasPermukaan(new double[] { params[0] });
-        }
-        return 0.0;
+    public double menghitungLuasPermukaan(int alas, int tinggi, int sisiMiring1, int sisiMiring2, int tinggiPrisma) {
+        double luasAlas = super.menghitungLuas(alas, tinggi);
+        double kelilingAlas = super.menghitungKeliling(alas, sisiMiring1, sisiMiring1);
+        return 2 * luasAlas + kelilingAlas * tinggiPrisma;
     }
 
     @Override
